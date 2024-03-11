@@ -68,7 +68,7 @@ namespace component {
 		if (input_force != this->m_real_input) {
 			this->m_hold_time = 0;
 		}
-		this->m_real_input = input_force;
+		this->m_real_input = input_force.normalized();
 	}
 
 	void CAT_VirtualController::gain(const float delta_time) {

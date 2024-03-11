@@ -16,7 +16,8 @@ struct CAT_Input {
     int front = 0;
     int back = 0;
 
-    int a = 0;
+    int right_trigger = 0;
+    bool right_trigger_switch = false;
 
     int escape = 0;
 };

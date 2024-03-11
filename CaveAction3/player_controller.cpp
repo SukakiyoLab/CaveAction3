@@ -37,7 +37,7 @@ namespace component {
                 this->m_animator2D->change_animation(0, &(m_input->direction));
             }
 
-            if (m_input->a == 1) {
+            if (m_input->right_trigger == 1) {
                 change_state(PlayerState::Attack);
             }
 

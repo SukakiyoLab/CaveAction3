@@ -61,6 +61,9 @@ private:
 
 
     object::TilemapObject* field;
+    object::TilemapObject* wall;
+    object::TilemapObject* roof;
+
 
     object::Player2D* gb1;
 
