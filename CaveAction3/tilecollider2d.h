@@ -4,6 +4,9 @@
 
 #include <vector>
 
+
+#define DEFAULT_EDGE_RATE 0.5
+
 namespace component
 {
 
