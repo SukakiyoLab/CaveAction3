@@ -172,8 +172,8 @@ int CAT_SDLEngine::InitObject()
     gb1Init.input_speed = M_PI;
     gb1Init.max_speed = 150;
     gb1Init.collider_layer = 0;
-    gb1Init.collider_w = 24;
-    gb1Init.collider_h = 32;
+    gb1Init.collider_w = 32;
+    gb1Init.collider_h = 64;
     gb1Init.collider_offset = Vector2d(0, 0);
     gb1Init.collider_manager = m_collider_manager;
     gb1Init.player_input = &(this->input);

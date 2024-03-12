@@ -10,11 +10,19 @@
 
 #include "transform.h"
 
+#include <cmath>
+
 #define DEFAULT_MASS (1.0)
 #define DEFAULT_COEFFICIENT (1.0)
+
+#define DEFAULT_STATIC_MAGNITUDE (2500)
 #define DEFAULT_NORMAL_X (0)
 #define DEFAULT_NORMAL_Y (0)
 #define DEFAULT_NORMAL_Z (1000)
+
+#define DEFAULT_STATIC_VELOCITY (50)
+
+
 
 using namespace Eigen;
 //using namespace std;
@@ -41,8 +49,10 @@ namespace component
 		float mass;						 // 質量 //
 		Vector3d m_sum_force = Vector3d::Zero();			 // 力の総和 //
  		Vector3d m_virtual_normal_force; // 仮想垂直抗力 //
-		float coefficient;				 // 動摩擦係数 //
+		float friction_coefficient;				 // 動摩擦係数 //
 		CAT_Transform *m_transform;
+
+		float static_friction_magnitude = DEFAULT_STATIC_MAGNITUDE;
 
 	public:
 		

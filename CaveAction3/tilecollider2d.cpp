@@ -8,6 +8,8 @@
 
 #include "boxcollider2d.h"
 
+#include <cmath>
+
 namespace component
 {
 
@@ -176,6 +178,10 @@ namespace component
         int result = 0;
 
         if(box_col != nullptr){
+
+            Vector3d force = Vector3d::Zero();
+            int force_num = 0;
+
             for(int i = 0 ; i < lines.size(); i++){
                 Line line = lines[i];
                 int type = 0;
@@ -192,6 +198,10 @@ namespace component
                 Eigen::Vector2d pos = range.center;
                 double height = range.height;
                 double width = range.width;
+
+
+
+
                 if(type == 0){  /* ècí∑Collider */
 
                     double sum_width = width / 2 + m_width / 2;
@@ -211,56 +221,117 @@ namespace component
                                 dist_vec = pos - Vector2d(edge1[0] + this->m_width / 2, pos[1]);
                             }
 
+                            if (pos[0] < edge1[0]) {
+                                dist_vec = -Vector2d(pos[0] + width / 2, pos[1]) + Vector2d(edge1[0] - this->m_width / 2, pos[1]);
+                            }
+                            else {
+                                dist_vec = -Vector2d(pos[0] - width / 2, pos[1]) + Vector2d(edge1[0] + this->m_width / 2, pos[1]);
+                            }
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
-                            if (dist_vec_3d.dot(collider->get_velocity()) < 0 && dist_vec_3d.norm() > 1) {
-                                vec = 3000 * dist_vec_3d;
+                            if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
+                                vec = 200 * abs(collider->get_velocity()[0]) * dist_vec_3d.normalized() + 750 * dist_vec_3d ;
                             }
                             
                             
 
                             if(collider->get_collision() > 0){
-                                collider->add_force(vec);
+                                force += vec;
+                                if (force != Vector3d::Zero()) {
+                                    force_num++;
+                                }
                             }
                             result = 1;
                         } 
                     }
-                    else if(edge1[1] - this->m_width / 2 < pos[1] + height / 2
+                    else if (edge1[1] - this->m_width / 2 < pos[1] + height / 2
                          && pos[1] + height / 2 < edge1[1]
-                    ){                                  /* ècí∑Collider : â∫ïî */
+                        //(edge1 - pos).norm() < this->m_width / 2
+                    ){                                  
                         if(dist_vec.norm() < sum_width){
                             debug::debugLog("Collider On\n");
                             
-                            dist_vec = (pos - edge1) -  (pos- edge1).normalized() * (this->m_width / 2);
+                            dist_vec = (edge1 - pos);
+                            int key = 0;
 
+                            if (abs(dist_vec[1] / dist_vec[0]) < abs((this->m_width / 2 + height / 2) / (this->m_width / 2 + width / 2))) {
+                                key = 0;
+                            }
+                            else {
+                                key = 1;
+                            }
+
+
+                            if (key == 0) {
+                                double sum = this->m_width / 2 + width / 2;
+                                if (dist_vec[0] > 0) {
+                                    dist_vec = Vector2d((abs(dist_vec[0]) - sum), 0);
+                                }
+                                else {
+                                    dist_vec = Vector2d((sum - abs(dist_vec[0])), 0);
+                                }
+                            }
+                            else {
+                                double sum = this->m_width / 2 + height / 2;
+                                dist_vec = Vector2d(0, (abs(dist_vec[1]) - sum));
+                            }
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
-                            if (dist_vec_3d.dot(collider->get_velocity()) < 0 && dist_vec_3d.norm() > 1) {
-                                vec = 1500 * dist_vec_3d;
+                            if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
+                                vec = 250 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 500 * dist_vec_3d;
                             }
 
                             if(collider->get_collision() > 0){
-                                collider->add_force(vec);
+                                force += vec;
+                                if (force != Vector3d::Zero()) {
+                                    force_num++;
+                                }
                             }
                             result = 1;
                         } 
                     }
                     else if(edge2[1] < pos[1] - height / 2
                          && pos[1] - height / 2 < edge2[1] + this->m_width / 2
-                    ){                                  /* ècí∑Collider : è„ïî */
+                        //(edge2 - pos).norm() < this->m_width / 2
+                    ){                                  
                         if(dist_vec.norm() < sum_width){
                             debug::debugLog("Collider On\n");
                             
-                            dist_vec = (pos - edge2) - (pos - edge2).normalized() * (this->m_width / 2);
+                            dist_vec = (edge2 - pos);
+                            int key = 0;
 
-
-                            Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
-                            if (dist_vec_3d.dot(collider->get_velocity()) < 0 && dist_vec_3d.norm() > 1) {
-                                vec = 1500 * dist_vec_3d;
+                            if (abs(dist_vec[1] / dist_vec[0]) < abs((this->m_width / 2 + height / 2) / (this->m_width / 2 + width / 2))) {
+                                key = 0;
+                            }
+                            else {
+                                key = 1;
                             }
 
-                            if(collider->get_collision() > 0){
-                                collider->add_force(vec);
+
+                            if (key == 0) {
+                                double sum = this->m_width / 2 + width / 2;
+                                if (dist_vec[0] > 0) {
+                                    dist_vec = Vector2d((abs(dist_vec[0]) - sum), 0);
+                                }
+                                else {
+                                    dist_vec = Vector2d((sum - abs(dist_vec[0])), 0);
+                                }
+                            }
+                            else {
+                                double sum = this->m_width / 2 + height / 2;
+                                dist_vec = Vector2d(0, (sum - abs(dist_vec[1])));
+                            }
+
+                            Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
+                            if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
+                                vec = 250 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 500 * dist_vec_3d;
+                            }
+
+                            if (collider->get_collision() > 0) {
+                                force += vec;
+                                if (force != Vector3d::Zero()) {
+                                    force_num++;
+                                }
                             }
                             result = 1;
                         } 
@@ -274,73 +345,136 @@ namespace component
                     Vector2d dist_vec = pos - Vector2d(pos[0], edge1[1]);
                     Eigen::Vector3d vec = Eigen::Vector3d::Zero();
 
-                    if(edge1[0] < pos[0] + width / 2 
+                    if(edge1[0] < pos[0] + width / 2
                     && edge2[0] > pos[0] - width / 2){ /* â°í∑Collider : íÜâõïî */
                         
                         if(dist_vec.norm() < sum_width){
                             debug::debugLog("Collider On\n");
                             
                             if (pos[1] < edge1[1]) {
-                                dist_vec = pos - Vector2d(pos[0], edge1[1] - this->m_width / 2);
+                                dist_vec = - Vector2d(pos[0], pos[1] + height / 2) + Vector2d(pos[0], edge1[1] - this->m_width / 2);
                             }
                             else {
-                                dist_vec = pos - Vector2d(pos[0], edge1[1] + this->m_width / 2);
+                                dist_vec = - Vector2d(pos[0], pos[1] - height / 2) + Vector2d(pos[0], edge1[1] + this->m_width / 2);
                             }
 
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
-                            if (dist_vec_3d.dot(collider->get_velocity()) < 0 && dist_vec_3d.norm() > 1) {
-                                vec = 3000 * dist_vec_3d;
+                            if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
+                                vec = 200 * abs(collider->get_velocity()[1]) * dist_vec_3d.normalized() + 750 * dist_vec_3d;
                             }
 
                             if(collider->get_collision() > 0){
-                                collider->add_force(vec);
+                                force += vec;
+                                if (force != Vector3d::Zero()) {
+                                    force_num++;
+                                }
                             }
                             result = 1;
                         } 
                     }
-                    else if(edge1[0] - this->m_width / 2 < pos[0] + width / 2
+                    else if (edge1[0] - this->m_width / 2 < pos[0] + width / 2
                          && pos[0] + width / 2 < edge1[0]
-                    ){                                  /* â°í∑Collider : â∫ïî */
+                        //(edge1 - pos).norm() < this->m_width / 2
+                    ){                                  
                         if(dist_vec.norm() < sum_width){
-                            debug::debugLog("Collider On\n");
-                            
-                            dist_vec = (pos - edge1) - (pos - edge1).normalized() * (this->m_width / 2);
+                            dist_vec = (edge1 - pos);
+                            int key = 0;
 
-
-                            Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
-                            if (dist_vec_3d.dot(collider->get_velocity()) < 0 && dist_vec_3d.norm() > 1) {
-                                vec = 1500 * dist_vec_3d;
+                            if (abs(dist_vec[1] / dist_vec[0]) < abs((this->m_width / 2 + height / 2) / (this->m_width / 2 + width / 2))) {
+                                key = 0;
+                            }
+                            else {
+                                key = 1;
                             }
 
-                            if(collider->get_collision() > 0){
-                                collider->add_force(vec);
+
+                            if (key == 0) {
+                                double sum = this->m_width / 2 + width / 2;
+                                dist_vec = Vector2d((abs(dist_vec[0]) - sum), 0);
+                                
+                            }
+                            else {
+                                double sum = this->m_width / 2 + height / 2;
+                                if (dist_vec[1] > 0) {
+                                    dist_vec = Vector2d(0,(abs(dist_vec[1]) - sum));
+                                }
+                                else {
+                                    dist_vec = Vector2d(0,(sum - abs(dist_vec[1])));
+                                }
+                            }
+
+                            Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
+                            if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
+                                vec = 250 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 500 * dist_vec_3d;
+                            }
+
+                            if (collider->get_collision() > 0) {
+                                force += vec;
+                                if (force != Vector3d::Zero()) {
+                                    force_num++;
+                                }
                             }
                             result = 1;
                         } 
                     }
                     else if(edge2[0] < pos[0] - width / 2
                          && pos[0] - width / 2 < edge2[0] + this->m_width / 2
-                    ){                                  /* â°í∑Collider : è„ïî */
+                        //(edge2 - pos).norm() < this->m_width / 2
+                    ){                                  
                         if(dist_vec.norm() < sum_width){
                             debug::debugLog("Collider On\n");
                             
-                            dist_vec = (pos - edge2) - (pos - edge2).normalized() * (this->m_width / 2);
+                            dist_vec = (edge2 - pos);
+                            int key = 0;
 
-
-                            Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
-                            if (dist_vec_3d.dot(collider->get_velocity()) < 0 && dist_vec_3d.norm() > 1) {
-                                vec = 1500 * dist_vec_3d;
+                            if (abs(dist_vec[1] / dist_vec[0]) < abs((this->m_width / 2 + height / 2) / (this->m_width / 2 + width / 2))) {
+                                key = 0;
+                            }
+                            else {
+                                key = 1;
                             }
 
-                            if(collider->get_collision() > 0){
-                                collider->add_force(vec);
+
+                            if (key == 0) {
+                                double sum = this->m_width / 2 + width / 2;
+                                dist_vec = Vector2d((sum - abs(dist_vec[0])), 0);
+
+                            }
+                            else {
+                                double sum = this->m_width / 2 + height / 2;
+                                if (dist_vec[1] > 0) {
+                                    dist_vec = Vector2d(0, (abs(dist_vec[1]) - sum));
+                                }
+                                else {
+                                    dist_vec = Vector2d(0, (sum - abs(dist_vec[1])));
+                                }
+                            }
+
+                            Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
+                            if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
+                                vec = 250 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 500 * dist_vec_3d;
+                            }
+
+                            if (collider->get_collision() > 0) {
+                                force += vec;
+                                if (force != Vector3d::Zero()) {
+                                    force_num++;
+                                }
                             }
                             result = 1;
                         } 
                     }
                 }
             }
+
+
+            if (collider->get_collision() > 0) {
+                if (force_num != 0) {
+                    collider->add_force(force / force_num);
+                }
+            }
+
         }
 
         return result;

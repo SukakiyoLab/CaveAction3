@@ -15,7 +15,7 @@ namespace component {
 
 		this->type = type;
 		this->mass = mass;
-		this->coefficient = coefficient;
+		this->friction_coefficient = coefficient;
 
 		this->m_transform = transform;
 		this->m_virtual_normal_force = virtual_normal_force;
@@ -32,8 +32,48 @@ namespace component {
 		// 速度を計算//
 		if (type == Newton) {
 			Vector3d pre_velocity = this->m_velocity;
-			Vector3d friction_force = -this->coefficient * this->m_virtual_normal_force.norm() * this->m_velocity.normalized();
-			Vector3d next_velocity = pre_velocity + (this->m_sum_force + friction_force) * delta_time / 1000 / this->mass;
+			Vector3d friction_force = -this->friction_coefficient * this->m_virtual_normal_force.norm() * this->m_velocity.normalized();
+
+			Vector3d next_velocity;
+
+			
+
+				debug::print("sum_force", this->m_sum_force);
+				Vector3d force_v;
+				Vector3d force_h;
+				if (pre_velocity.norm() > DEFAULT_STATIC_VELOCITY) {
+
+					Vector3d force = this->m_sum_force;
+					float force_v_magnitude = pre_velocity.dot(force) / pre_velocity.norm();
+					force_v = (pre_velocity / pre_velocity.norm()) * force_v_magnitude;
+					force_h = force - force_v;
+				}
+				else {
+					force_v = this->m_sum_force;
+					force_h = Vector3d::Zero();
+				}
+
+				//debug::print("force_v", force_v);
+				//debug::print("force_h", force_h);
+
+				if (pre_velocity.norm() < DEFAULT_STATIC_VELOCITY) {
+
+					int v_check = 0;
+					int h_check = 0;
+
+					if (force_v.norm() > this->static_friction_magnitude) {
+						v_check = 1;
+					}
+					if (force_h.norm() > this->static_friction_magnitude){
+						h_check = 1;
+					}
+					next_velocity = pre_velocity + (v_check * force_v + h_check * force_h + friction_force) * delta_time / 1000 / this->mass;
+				}
+				else {
+					next_velocity = pre_velocity + (this->m_sum_force + friction_force) * delta_time / 1000 / this->mass;
+				}
+			
+			//next_velocity = pre_velocity + (this->m_sum_force + friction_force) * delta_time / 1000 / this->mass;
 
 			this->m_velocity = next_velocity;
 
