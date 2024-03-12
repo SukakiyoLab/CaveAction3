@@ -3,14 +3,18 @@
 #pragma comment(lib, "SDL2.lib")
 #pragma comment(lib, "SDL2_image.lib")
 #pragma comment(lib, "SDL2main.lib")
-
 #pragma comment(lib, "cryptlib.lib")
 
 #pragma comment(lib, "pugixml.lib")
 
+#include <Windows.h>
 
 
-int main(int args, char* argv[]){
+#ifndef _DEBUG
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+#else
+int main(int args, char* argv[]) {
+#endif
 	CAT_SDLEngine engine;
 
 	engine.InitEngine();
@@ -26,3 +30,5 @@ int main(int args, char* argv[]){
 	return result;
 
 }
+
+
