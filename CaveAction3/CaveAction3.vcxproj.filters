@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Component">
+      <UniqueIdentifier>{de28692a-5039-420d-9337-87009afea393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\TmpObject">
+      <UniqueIdentifier>{8e02e7b5-a8ea-45d8-8edd-11ec2ff570de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameSystem">
+      <UniqueIdentifier>{921ecaeb-230a-4aa1-9449-2e790f914e63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BinaryResource">
+      <UniqueIdentifier>{73e28b1e-c510-4f73-875c-888895121129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BinaryResource\AnimData">
+      <UniqueIdentifier>{d690cc0d-1c73-44bd-a611-dec11dbc195f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BinaryResource\TilemapData">
+      <UniqueIdentifier>{32523621-11e7-465c-8bf2-03d67da4783f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BinaryResource\TilemapDataCollider">
+      <UniqueIdentifier>{6d84a644-964f-4302-99b3-b0c86e969a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component">
+      <UniqueIdentifier>{e6322ce2-d4a3-4ac0-a664-34318ce6d41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject">
+      <UniqueIdentifier>{261788fe-cd99-4058-ac61-2121430859be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject">
+      <UniqueIdentifier>{24851208-6c3d-4e16-ac91-ae80a8aa9056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameSystem">
+      <UniqueIdentifier>{123f4b0a-7a25-4b84-9ad1-88ff8d0a527a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\tmpObject">
+      <UniqueIdentifier>{c6f3842b-f7e2-460a-b46c-8aefe6073bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ComponentOriginal">
+      <UniqueIdentifier>{ef492fc1-9a0f-4bb2-ba43-74c7da2debae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ComponentOriginal">
+      <UniqueIdentifier>{bbd5f78c-335c-4d9e-8fdf-f7cff6b7b6f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BinaryResource\AnimTupleData">
+      <UniqueIdentifier>{153d91e8-d207-4313-89e9-a76d733bac7a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PlayerAnim1.h">
+      <Filter>ヘッダー ファイル\BinaryResource\AnimData</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapData1.h">
+      <Filter>ヘッダー ファイル\BinaryResource\TilemapData</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapDataCollider1.h">
+      <Filter>ヘッダー ファイル\BinaryResource\TilemapDataCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="animation_image.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="animation_root.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="animator2d.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="boxcollider2d.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="collider2d.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="image_root.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="rigidbody.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="tilecollider2d.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="tilemap.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="virtual_controller.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="debug_log.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="csv_loader.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="image_projecter.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="image_storage.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl_engine.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_loader.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationEntity2D.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="collider_manager.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="player_controller.h">
+      <Filter>ヘッダー ファイル\ComponentOriginal</Filter>
+    </ClInclude>
+    <ClInclude Include="shared_struct.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimTuple1.h">
+      <Filter>ヘッダー ファイル\BinaryResource\AnimTupleData</Filter>
+    </ClInclude>
+    <ClInclude Include="Player2D.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RockAnim1.h">
+      <Filter>ヘッダー ファイル\BinaryResource\AnimData</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapData2.h">
+      <Filter>ヘッダー ファイル\BinaryResource\TilemapData</Filter>
+    </ClInclude>
+    <ClInclude Include="TilemapData3.h">
+      <Filter>ヘッダー ファイル\BinaryResource\TilemapData</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterAnim1.h">
+      <Filter>ヘッダー ファイル\BinaryResource\AnimData</Filter>
+    </ClInclude>
+    <ClInclude Include="view_camera.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="slime_controller.h">
+      <Filter>ヘッダー ファイル\ComponentOriginal</Filter>
+    </ClInclude>
+    <ClInclude Include="character_controller.h">
+      <Filter>ヘッダー ファイル\ComponentOriginal</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime2D.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="nav_mesh_system2d.h">
+      <Filter>ヘッダー ファイル\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="nav_mesh_agent2d.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="NavMeshEntity.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="animation_image.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="boxcollider2d.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="collider2d.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="rigidbody.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="tilecollider2d.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="virtual_controller.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="transform.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="tilemap.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="csv_loader.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="debug_log.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="image_storage.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="sdl_engine.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="image_root.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="image_projecter.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_loader.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="animator2d.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="animation_root.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="collider_manager.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="player_controller.cpp">
+      <Filter>ソース ファイル\ComponentOriginal</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationEntity2D.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player2D.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TilemapObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="view_camera.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="slime_controller.cpp">
+      <Filter>ソース ファイル\ComponentOriginal</Filter>
+    </ClCompile>
+    <ClCompile Include="character_controller.cpp">
+      <Filter>ソース ファイル\ComponentOriginal</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime2D.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="nav_mesh_system2d.cpp">
+      <Filter>ソース ファイル\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="nav_mesh_agent2d.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="NavMeshEntity.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

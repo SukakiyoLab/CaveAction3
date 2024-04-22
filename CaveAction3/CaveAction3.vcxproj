@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AnimationEntity2D.h" />
+    <ClInclude Include="animation_root.h" />
+    <ClInclude Include="animator2d.h" />
+    <ClInclude Include="animation_image.h" />
+    <ClInclude Include="boxcollider2d.h" />
+    <ClInclude Include="CameraObject.h" />
+    <ClInclude Include="character_controller.h" />
+    <ClInclude Include="NavMeshEntity.h" />
+    <ClInclude Include="nav_mesh_agent2d.h" />
+    <ClInclude Include="nav_mesh_system2d.h" />
+    <ClInclude Include="Slime2D.h" />
+    <ClInclude Include="slime_controller.h" />
+    <ClInclude Include="view_camera.h" />
+    <ClInclude Include="CharacterAnim1.h" />
+    <ClInclude Include="collider2d.h" />
+    <ClInclude Include="collider_manager.h" />
+    <ClInclude Include="csv_loader.h" />
+    <ClInclude Include="debug_log.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="image_projecter.h" />
+    <ClInclude Include="image_storage.h" />
+    <ClInclude Include="Player2D.h" />
+    <ClInclude Include="PlayerAnim1.h" />
+    <ClInclude Include="PlayerAnimTuple1.h" />
+    <ClInclude Include="player_controller.h" />
+    <ClInclude Include="image_root.h" />
+    <ClInclude Include="rigidbody.h" />
+    <ClInclude Include="RockAnim1.h" />
+    <ClInclude Include="sdl_engine.h" />
+    <ClInclude Include="shared_struct.h" />
+    <ClInclude Include="tilecollider2d.h" />
+    <ClInclude Include="tilemap.h" />
+    <ClInclude Include="TilemapData1.h" />
+    <ClInclude Include="TilemapData2.h" />
+    <ClInclude Include="TilemapData3.h" />
+    <ClInclude Include="TilemapDataCollider1.h" />
+    <ClInclude Include="TilemapObject.h" />
+    <ClInclude Include="transform.h" />
+    <ClInclude Include="virtual_controller.h" />
+    <ClInclude Include="xml_loader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AnimationEntity2D.cpp" />
+    <ClCompile Include="animation_image.cpp" />
+    <ClCompile Include="animation_root.cpp" />
+    <ClCompile Include="animator2d.cpp" />
+    <ClCompile Include="boxcollider2d.cpp" />
+    <ClCompile Include="CameraObject.cpp" />
+    <ClCompile Include="character_controller.cpp" />
+    <ClCompile Include="collider2d.cpp" />
+    <ClCompile Include="collider_manager.cpp" />
+    <ClCompile Include="csv_loader.cpp" />
+    <ClCompile Include="debug_log.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="image_projecter.cpp" />
+    <ClCompile Include="image_storage.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="NavMeshEntity.cpp" />
+    <ClCompile Include="nav_mesh_agent2d.cpp" />
+    <ClCompile Include="nav_mesh_system2d.cpp" />
+    <ClCompile Include="Player2D.cpp" />
+    <ClCompile Include="player_controller.cpp" />
+    <ClCompile Include="image_root.cpp" />
+    <ClCompile Include="rigidbody.cpp" />
+    <ClCompile Include="sdl_engine.cpp" />
+    <ClCompile Include="Slime2D.cpp" />
+    <ClCompile Include="slime_controller.cpp" />
+    <ClCompile Include="tilecollider2d.cpp" />
+    <ClCompile Include="tilemap.cpp" />
+    <ClCompile Include="TilemapObject.cpp" />
+    <ClCompile Include="transform.cpp" />
+    <ClCompile Include="view_camera.cpp" />
+    <ClCompile Include="virtual_controller.cpp" />
+    <ClCompile Include="xml_loader.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{7eb46d6c-6d39-408d-8b24-ac2fa67b3940}</ProjectGuid>
+    <RootNamespace>CaveAction3</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SDLVC_DIR)\SDL2-2.30.0\include;$(SDLVC_DIR)\SDL2_image-2.8.2\include;$(EIGEN_DIR);C:\CPP_LIBRARY\cryptopp890;C:\CPP_LIBRARY\pugixml-1.14\pugixml-1.14\src;C:\Users\Sukakiyo\Desktop\python_src\CaveAction3_Sub\cpp_header</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SDLVC_DIR)\SDL2-2.30.0\lib\x64;$(SDLVC_DIR)\SDL2_image-2.8.2\lib\x64;C:\CPP_LIBRARY\pugixml-1.14\pugixml-1.14\scripts\vs2022\x64_Debug;C:\CPP_LIBRARY\cryptopp890\x64\Output\Debug</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SDLVC_DIR)\SDL2-2.30.0\include;$(SDLVC_DIR)\SDL2_image-2.8.2\include;$(EIGEN_DIR);C:\CPP_LIBRARY\cryptopp890;C:\CPP_LIBRARY\pugixml-1.14\pugixml-1.14\src;C:\Users\Sukakiyo\Desktop\python_src\CaveAction3_Sub\cpp_header</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SDLVC_DIR)\SDL2-2.30.0\lib\x64;$(SDLVC_DIR)\SDL2_image-2.8.2\lib\x64;C:\CPP_LIBRARY\pugixml-1.14\pugixml-1.14\scripts\vs2022\x64_ReleaseStatic;C:\CPP_LIBRARY\cryptopp890\x64\Output\Release</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,247 @@
+﻿  AnimationEntity2D.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'AnimationEntity2D.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'AnimationEntity2D.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'AnimationEntity2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'AnimationEntity2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'AnimationEntity2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'AnimationEntity2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\AnimationEntity2D.cpp(9,63): warning C4244: '引数': 'unsigned short' から 'unsigned char' への変換です。データが失われる可能性があります。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\AnimationEntity2D.cpp(28,67): warning C4244: '引数': 'unsigned short' から 'unsigned char' への変換です。データが失われる可能性があります。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\AnimationEntity2D.cpp(58,35): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\AnimationEntity2D.cpp(59,25): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+  animation_image.cpp
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image_storage.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': マクロが再定義されました。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  C:\CPP_LIBRARY\SDL2_VC\SDL2-2.30.0\include\SDL_stdinc.h(620,1):
+  'M_PI' の以前の定義を確認してください
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'animation_image.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.cpp(89,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.cpp(90,16): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+  image_projecter.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+  main.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image_storage.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+  NavMeshEntity.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'NavMeshEntity.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'NavMeshEntity.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'NavMeshEntity.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'NavMeshEntity.cpp' をコンパイルしています)
+  
+  nav_mesh_agent2d.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'nav_mesh_agent2d.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'nav_mesh_agent2d.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'nav_mesh_agent2d.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'nav_mesh_agent2d.cpp' をコンパイルしています)
+  
+  nav_mesh_system2d.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'nav_mesh_system2d.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'nav_mesh_system2d.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'nav_mesh_system2d.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'nav_mesh_system2d.cpp' をコンパイルしています)
+  
+  Player2D.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Player2D.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Player2D.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Player2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Player2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Player2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Player2D.cpp' をコンパイルしています)
+  
+  sdl_engine.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image_storage.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\sdl_engine.cpp(238,32): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\sdl_engine.cpp(260,32): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\sdl_engine.cpp(293,32): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+  Slime2D.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'Slime2D.cpp' をコンパイルしています)
+  
+  slime_controller.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'slime_controller.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'slime_controller.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'slime_controller.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'slime_controller.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(30,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'slime_controller.cpp' をコンパイルしています)
+  
+  TilemapObject.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'TilemapObject.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'TilemapObject.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'TilemapObject.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'TilemapObject.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'TilemapObject.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\TilemapObject.cpp(18,55): warning C4244: '引数': 'unsigned short' から 'unsigned char' への変換です。データが失われる可能性があります。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\TilemapObject.cpp(32,69): warning C4244: '引数': 'unsigned short' から 'unsigned char' への変換です。データが失われる可能性があります。
+  コード生成しています。
+  431 of 4090 functions (10.5%) were compiled, the rest were copied from previous compilation.
+    79 functions were new in current compilation
+    117 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  CaveAction3.vcxproj -> C:\Users\Sukakiyo\source\repos\CaveAction3\x64\Release\CaveAction3.exe

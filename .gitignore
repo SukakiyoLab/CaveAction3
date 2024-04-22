@@ -1,0 +1,6 @@
+#.vcフォルダを無視
+.vc/*
+
+#pdbファイルを無視
+x64/Debug/*.pdb
+x64/Release/*.pdb

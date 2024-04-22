@@ -7,6 +7,7 @@
 #include "rigidbody.h"
 #include "boxcollider2d.h"
 #include "virtual_controller.h"
+#include "image.h"
 
 #include <vector>
 #include <tuple>
@@ -23,10 +24,15 @@ namespace object {
 		component::CAT_BoxCollider2D* box_collider;
 		component::CAT_VirtualController* virtual_contoroller;
 
+#ifdef _DEBUG
+		component::CAT_Image* debug_image;
+#endif
+
 	public:
 		struct ObjectInitializer : GameObject::ObjectInitializer{
 			const char* animation_data; /* AnimationImage */
 			SDL_Renderer* renderer;
+			Vector2i image_offset = Vector2i::Zero();
 			unsigned short image_layer;
 			ImageProjecter* projecter;
 

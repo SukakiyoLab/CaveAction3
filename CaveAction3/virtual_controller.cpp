@@ -81,13 +81,13 @@ namespace component {
 				update_element(this->m_real_input[1], this->m_virtual_input[1], delta_time),
 				update_element(this->m_real_input[2], this->m_virtual_input[2], delta_time)
 			);
-			debug::debugLog("new vector: x: %f, y: %f, z: %f\n", this->m_virtual_input[0],
+			/*debug::debugLog("new vector: x: %f, y: %f, z: %f\n", this->m_virtual_input[0],
 				this->m_virtual_input[1],
-				this->m_virtual_input[2]);
+				this->m_virtual_input[2]);*/
 
 			Vector3d velocity = this->m_rigidbody->get_velocity();
 
-			debug::debugLog("speed: %f\n", velocity.norm());
+			/*debug::debugLog("speed: %f\n", velocity.norm());*/
 
 
 			this->m_rigidbody->addForce(DEFAULT_INPUT_FORCE *  limit(velocity, this->m_virtual_input));
@@ -95,7 +95,7 @@ namespace component {
 		else if(m_rigidbody->get_type() == CAT_Rigidbody::Aristoteles) {
 			
 			this->m_rigidbody->set_velocity(150 * this->m_real_input);
-			debug::debugLog("speed: %f\n", this->m_rigidbody->get_velocity().norm());
+			/*debug::debugLog("speed: %f\n", this->m_rigidbody->get_velocity().norm());*/
 			
 		}
 

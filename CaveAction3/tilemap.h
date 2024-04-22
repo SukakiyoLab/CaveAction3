@@ -6,7 +6,7 @@
 
 #include "transform.h"
 
-#include "raw_image.h"
+#include "image_root.h"
 #include "image_projecter.h"
 
 #define TILE_SIZE (32)
@@ -14,7 +14,7 @@
 
 namespace component
 {
-    class CAT_Tilemap : public CAT_RawImage
+    class CAT_Tilemap : public CAT_ImageRoot
     {
     private:
 		SDL_Surface *m_image; // 画像 //
@@ -25,13 +25,14 @@ namespace component
 		std::vector<SDL_Rect> m_image_rect;
 		std::vector<SDL_Rect> m_draw_rect;
 		Uint32 m_format;
+		Uint8 m_alpha;
 
         std::vector<std::vector<unsigned short>> tile_init;
 
 		
 
 	public:
-		CAT_Tilemap(CAT_Transform *const transform, const char *path, std::vector<std::vector<unsigned short>> tilemap_init, SDL_Renderer *const renderer);
-		void project() override;
+		CAT_Tilemap(CAT_Transform *const transform, const char *path, std::vector<std::vector<unsigned short>> tilemap_init,Uint8 alpha, SDL_Renderer *const renderer);
+		void project(CAT_ViewCamera* camera) override;
     };
 }

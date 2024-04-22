@@ -6,6 +6,11 @@
 
 #include <string>
 
+#include "shared_struct.h"
+#include "debug_log.h"
+
+#include <map>
+
 namespace XMLLoader {
 
 	class AnimLoader {
@@ -28,5 +33,5 @@ namespace XMLLoader {
 	};
 
 
-
+	std::vector<CAT_NMRect> NMRectLoad(const char* rect_data, Eigen::Vector2i offset);
 }

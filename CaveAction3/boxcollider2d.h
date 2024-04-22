@@ -13,6 +13,7 @@ namespace component
             double width;
             double height;
 
+            Eigen::Vector2d offset;
             Eigen::Vector2d center;
         };
 

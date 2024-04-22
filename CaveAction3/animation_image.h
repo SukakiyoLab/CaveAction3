@@ -7,13 +7,13 @@
 
 #include <vector>
 
-#include "raw_image.h"
+#include "image_root.h"
 #include "animation_root.h"
 
 namespace component
 {
 
-	class CAT_AnimationImage : public CAT_RawImage, public CAT_AnimationRoot
+	class CAT_AnimationImage : public CAT_ImageRoot, public CAT_AnimationRoot
 	{
 	private:
 		struct ImageState{
@@ -31,6 +31,7 @@ namespace component
 		//SDL_Surface *m_image; // 画像 //
 		int m_w;			  // 幅 //
 		int m_h;			  // 高さ //
+		Eigen::Vector2i offset;
 		SDL_Renderer *m_renderer;
 		//SDL_Texture *m_texture; //
 		//SDL_Rect m_image_rect; //
@@ -43,9 +44,9 @@ namespace component
 		
 
 	public:
-		CAT_AnimationImage(CAT_Transform *const transform, const char* xml_file, SDL_Renderer *const renderer);
+		CAT_AnimationImage(CAT_Transform *const transform, const char* xml_file, SDL_Renderer *const renderer, Eigen::Vector2i offset);
 		void gain(double delta_time);
-		void project() override;
+		void project(CAT_ViewCamera* camera) override;
 		int change_animation(unsigned short new_id) override;
 		
 	};

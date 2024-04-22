@@ -9,6 +9,7 @@ namespace object {
 			objectInit.scale,
 			objectInit.animation_data,
 			objectInit.renderer,
+			objectInit.image_offset,
 			objectInit.image_layer,
 			objectInit.projecter,
 
@@ -30,6 +31,9 @@ namespace object {
 
 		this->player_controller = new component::CAT_PlayerController(this->rigidbody, this->virtual_contoroller, this->animator_2d);
 		this->player_controller->set_input(objectInit.player_input);
+
+		this->type = Type::Player;
+
 	}
 
 	Player2D::~Player2D() {

@@ -38,7 +38,7 @@ namespace component {
 
 			
 
-				debug::print("sum_force", this->m_sum_force);
+				//debug::print("sum_force", this->m_sum_force);
 				Vector3d force_v;
 				Vector3d force_h;
 				if (pre_velocity.norm() > DEFAULT_STATIC_VELOCITY) {
@@ -93,9 +93,6 @@ namespace component {
 		}
 	}
 
-	Vector3d CAT_Rigidbody::get_velocity() {
-		return this->m_velocity;
-	}
 
 	int CAT_Rigidbody::set_velocity(const Vector3d velocity) {
 

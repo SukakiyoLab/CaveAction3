@@ -24,6 +24,8 @@ namespace component
         this->h = h;
         this->offset = offset;
 
+        this->update();
+
     }
 
     void CAT_BoxCollider2D::update(){
@@ -33,6 +35,7 @@ namespace component
         range.width = w * scale[0];
         range.height = h * scale[1];
 
+        range.offset = offset;
         range.center = Eigen::Vector2d(pos[0], pos[1]) + offset;
         
     }

@@ -3,7 +3,7 @@
 namespace object {
 	AnimationEntity2D::AnimationEntity2D(AnimationEntity2D::ObjectInitializer objectInit) 
 	: GameObject::GameObject({objectInit.position, objectInit.rotation, objectInit.scale}) {
-		this->animation_image = new component::CAT_AnimationImage(this->transform,objectInit.animation_data,objectInit.renderer);
+		this->animation_image = new component::CAT_AnimationImage(this->transform,objectInit.animation_data,objectInit.renderer, objectInit.image_offset);
 		this->animator_2d = new component::CAT_Animator2D(this->animation_image);
 
 		objectInit.projecter->save(this->animation_image, objectInit.image_layer);
@@ -26,6 +26,12 @@ namespace object {
 			objectInit.collider_h,
 			objectInit.collider_offset);
 		objectInit.collider_manager->save(this->box_collider, objectInit.collider_layer);
+
+#ifdef _DEBUG
+		component::CAT_BoxCollider2D::Range range = this->box_collider->get_range();
+		this->debug_image = new component::CAT_Image(this->transform, "./resource/imgs/panel1.png",objectInit.renderer,range.width / 32, range.height / 32, Eigen::Vector2f(range.offset[0], range.offset[1]), 100);
+		objectInit.projecter->save(this->debug_image, 8);
+#endif
 
 	}
 

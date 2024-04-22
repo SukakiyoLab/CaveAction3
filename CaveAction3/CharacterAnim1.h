@@ -13,19 +13,19 @@ const char* character_anim_1() {
     </animation>
     <animation>
         <frame>
-            <filename>./resource/imgs/walk/left/dotchara1_ver3_left1.png</filename>
+            <filename>./resource/imgs/walk/left/enemy1_left_walk1.png</filename>
             <duration>200</duration>
         </frame>
     </animation>
     <animation>
         <frame>
-            <filename>./resource/imgs/walk/right/dotchara1_ver3_right1.png</filename>
+            <filename>./resource/imgs/walk/right/enemy1_right_walk1.png</filename>
             <duration>200</duration>
         </frame>
     </animation>
     <animation>
         <frame>
-            <filename>./resource/imgs/walk/back/dotchara1_ver3_back1.png</filename>
+            <filename>./resource/imgs/walk/back/enemy1_back_walk1.png</filename>
             <duration>200</duration>
         </frame>
     </animation>
@@ -49,55 +49,55 @@ const char* character_anim_1() {
     </animation>
     <animation>
         <frame>
-            <filename>./resource/imgs/run/left/dotchara1_ver3_left_run1.png</filename>
+            <filename>./resource/imgs/walk/left/enemy1_left_walk1.png</filename>
             <duration>200</duration>
         </frame>
         <frame>
-            <filename>./resource/imgs/run/left/dotchara1_ver3_left_run2.png</filename>
+            <filename>./resource/imgs/walk/left/enemy1_left_walk2.png</filename>
             <duration>200</duration>
         </frame>
         <frame>
-            <filename>./resource/imgs/run/left/dotchara1_ver3_left_run3.png</filename>
+            <filename>./resource/imgs/walk/left/enemy1_left_walk3.png</filename>
             <duration>200</duration>
         </frame>
         <frame>
-            <filename>./resource/imgs/run/left/dotchara1_ver3_left_run4.png</filename>
-            <duration>200</duration>
-        </frame>
-    </animation>
-    <animation>
-        <frame>
-            <filename>./resource/imgs/run/right/dotchara1_ver3_right_run1.png</filename>
-            <duration>200</duration>
-        </frame>
-        <frame>
-            <filename>./resource/imgs/run/right/dotchara1_ver3_right_run2.png</filename>
-            <duration>200</duration>
-        </frame>
-        <frame>
-            <filename>./resource/imgs/run/right/dotchara1_ver3_right_run3.png</filename>
-            <duration>200</duration>
-        </frame>
-        <frame>
-            <filename>./resource/imgs/run/right/dotchara1_ver3_right_run4.png</filename>
+            <filename>./resource/imgs/walk/left/enemy1_left_walk4.png</filename>
             <duration>200</duration>
         </frame>
     </animation>
     <animation>
         <frame>
-            <filename>./resource/imgs/run/back/dotchara1_ver3_back_run1.png</filename>
+            <filename>./resource/imgs/walk/right/enemy1_right_walk1.png</filename>
             <duration>200</duration>
         </frame>
         <frame>
-            <filename>./resource/imgs/run/back/dotchara1_ver3_back_run2.png</filename>
+            <filename>./resource/imgs/walk/right/enemy1_right_walk2.png</filename>
             <duration>200</duration>
         </frame>
         <frame>
-            <filename>./resource/imgs/run/back/dotchara1_ver3_back_run3.png</filename>
+            <filename>./resource/imgs/walk/right/enemy1_right_walk3.png</filename>
             <duration>200</duration>
         </frame>
         <frame>
-            <filename>./resource/imgs/run/back/dotchara1_ver3_back_run4.png</filename>
+            <filename>./resource/imgs/walk/right/enemy1_right_walk4.png</filename>
+            <duration>200</duration>
+        </frame>
+    </animation>
+    <animation>
+        <frame>
+            <filename>./resource/imgs/walk/back/enemy1_back_walk1.png</filename>
+            <duration>200</duration>
+        </frame>
+        <frame>
+            <filename>./resource/imgs/walk/back/enemy1_back_walk2.png</filename>
+            <duration>200</duration>
+        </frame>
+        <frame>
+            <filename>./resource/imgs/walk/back/enemy1_back_walk3.png</filename>
+            <duration>200</duration>
+        </frame>
+        <frame>
+            <filename>./resource/imgs/walk/back/enemy1_back_walk4.png</filename>
             <duration>200</duration>
         </frame>
     </animation>

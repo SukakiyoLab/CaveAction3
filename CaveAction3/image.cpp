@@ -7,8 +7,8 @@
 namespace component
 {
 
-	CAT_Image::CAT_Image(CAT_Transform *const transform, const char *path, SDL_Renderer *const renderer)
-	:CAT_RawImage(transform){
+	CAT_Image::CAT_Image(CAT_Transform *const transform, const char *path, SDL_Renderer *const renderer,float w, float h, Vector2f offset, Uint8 alpha)
+	:CAT_ImageRoot(transform){
 		debug::debugLog("Create Image!\n");
 		
 		CAT_ImageStorage *storage = CAT_ImageStorage::getInstance();
@@ -30,21 +30,26 @@ namespace component
 		
 		SDL_QueryTexture(this->m_texture, &(this->m_format), NULL, &(this->m_w), &(this->m_h));
 		this->m_image_rect = SDL_Rect{0, 0, m_w, m_h};
+
+		this->project_width = w;
+		this->project_height = h;
+		this->project_offset = offset;
+		this->alpha = alpha;
 	}
 
-	void CAT_Image::project()
+	void CAT_Image::project(CAT_ViewCamera* camera)
 	{
-		float draw_w = this->m_w * this->m_transform->get_scale()[0];
-		float draw_h = this->m_h * this->m_transform->get_scale()[1];
+		float draw_w = this->m_w * this->project_width;
+		float draw_h = this->m_h * this->project_height;
 
 		// float draw_h = 32;
 		// float draw_w = 32;
 
-		Vector3d pos = this->m_transform->get_position();
+		Vector3d pos = this->m_transform->get_position() - camera->get_position() + camera->get_view_port_center();
 
-		this->m_draw_rect = SDL_FRect{(float)pos[0] - draw_w / 2, (float)pos[1] - draw_h / 2, draw_w, draw_h};
+		this->m_draw_rect = SDL_FRect{(float)pos[0] - draw_w / 2 + this->project_offset[0], (float)pos[1] - draw_h / 2 + this->project_offset[1], draw_w, draw_h};
 
-		SDL_SetTextureAlphaMod(this->m_texture, 255);
+		SDL_SetTextureAlphaMod(this->m_texture, this->alpha);
 
 
 		SDL_RenderCopyExF(this->m_renderer,

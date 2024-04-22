@@ -230,7 +230,7 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 200 * abs(collider->get_velocity()[0]) * dist_vec_3d.normalized() + 800 * dist_vec_3d ;
+                                vec = 400 * abs(collider->get_velocity()[0]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d ;
                             }
                             
                             
@@ -278,7 +278,7 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 200 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 800 * dist_vec_3d;
+                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
                             }
 
                             if(collider->get_collision() > 0){
@@ -324,7 +324,7 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 200 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 800 * dist_vec_3d;
+                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
                             }
 
                             if (collider->get_collision() > 0) {
@@ -361,7 +361,7 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 200 * abs(collider->get_velocity()[1]) * dist_vec_3d.normalized() + 800 * dist_vec_3d;
+                                vec = 400 * abs(collider->get_velocity()[1]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
                             }
 
                             if(collider->get_collision() > 0){
@@ -406,7 +406,7 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 200 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 800 * dist_vec_3d;
+                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
                             }
 
                             if (collider->get_collision() > 0) {
@@ -453,7 +453,7 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 200 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 800 * dist_vec_3d;
+                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
                             }
 
                             if (collider->get_collision() > 0) {

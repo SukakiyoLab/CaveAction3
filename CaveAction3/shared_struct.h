@@ -8,7 +8,6 @@
 
 struct CAT_Input {
 
-    Eigen::Vector2i direction = Eigen::Vector2i(0, 1);
     
 
     int right = 0;
@@ -20,4 +19,19 @@ struct CAT_Input {
     bool right_trigger_switch = false;
 
     int escape = 0;
+};
+
+struct CAT_NMRect {
+
+    unsigned short id = 255;
+
+    int top = 0;
+    int left = 0;
+    int right = 0;
+    int bottom = 0;
+
+    Eigen::Vector2i center;
+
+
+    std::vector<unsigned short> next_id;
 };

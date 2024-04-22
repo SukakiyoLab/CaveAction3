@@ -17,6 +17,8 @@
 #include "image_projecter.h"
 #include "collider_manager.h"
 
+#include "nav_mesh_system2d.h"
+
 //#include "game_object.h"
 #include "field.h"
 
@@ -26,10 +28,15 @@
 
 #include "shared_struct.h"
 
+#include "CameraObject.h"
 #include "AnimationEntity2D.h"
 #include "Player2D.h"
 
+#include "Slime2D.h"
+
 #include "TilemapObject.h"
+
+#include "NavMeshEntity.h"
 
 using namespace component;
 
@@ -41,9 +48,13 @@ private:
     ImageProjecter* m_projecter;
     ColliderManager* m_collider_manager;
 
+    NavMeshSystem2D* m_nav_mesh_sys;
+    
+
     int count = 0;
 	int quit = 0;
 	SDL_Event e;
+    Eigen::Vector3i window_pos = {};
 
     enum TypeController {
         KEY_MOUSE,
@@ -59,22 +70,37 @@ private:
     Uint32 frameStart, frameTime;
     Uint32 preDeltaTime = 0;
 
+    
+    object::NavMeshEntity* nav_mesh_entity;
 
     object::TilemapObject* field;
+    object::TilemapObject* field2;
+    object::TilemapObject* field3;
+
     object::TilemapObject* wall;
+    object::TilemapObject* wall2;
+    object::TilemapObject* wall3;
+
     object::TilemapObject* roof;
+    object::TilemapObject* roof2;
+    object::TilemapObject* roof3;
 
 
     object::Player2D* gb1;
 
     object::AnimationEntity2D* gb2;
 
+    object::CameraObject* camera;
+
+    object::Slime2D* gb3;
+
 private:
 
     void AddController(int index);
     void RemoveController();
     void InitInput();
-
+    bool CheckWindowPosition();
+    void InitWindowPosition();
 
 public:
     int InitEngine();

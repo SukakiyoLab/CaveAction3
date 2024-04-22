@@ -11,9 +11,17 @@
 
 namespace object {
 
+
+	enum Type {
+		Normal,
+		Player,
+		Enemy
+	};
+
 	class GameObject {
 	protected:
 		component::CAT_Transform* transform;
+		Type type = Type::Normal;
 
 	public:
 
@@ -32,9 +40,11 @@ namespace object {
 		virtual void Gain(double delta_time);
 
 
-
+		component::CAT_Transform* GetTransform() { return transform; }
 		Vector3d GetPosition() { return transform->get_position(); }
 		Vector3d GetRotation() { return transform->get_rotation(); }
+
+		void SetPosition(Vector3d new_position) { transform->set_position(new_position); }
 
 	};
 }
