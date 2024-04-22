@@ -2,7 +2,7 @@
 ## 1.ゲームデータについての注意
 本プログラムは単体ではビルドできず、マップデータやアニメーションデータは下記URLのCaveAction3\_Subのcpp\_headerフォルダを追加のヘッダーファイルとして指定することでビルドが可能である。
 
-https://github.com/SukakiyoLab/CaveAction3\_Sub.git
+https://github.com/SukakiyoLab/CaveAction3_Sub.git
 
 ## 2.各種ライブラリ
 ライブラリとしてSDL、Eigen、pugixmlを使用しているため、各種ライブラリの指定が必要である。また、cripto++も
