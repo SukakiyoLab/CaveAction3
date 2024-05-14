@@ -3,13 +3,10 @@
 namespace object {
 
 	CameraObject::CameraObject(CameraObject::ObjectInitializer objectInit) 
-		: GameObject::GameObject(
-		{
-		objectInit.position,
-		objectInit.rotation,
-		objectInit.scale
-		}) {
-		this->m_view_camera = new component::CAT_ViewCamera(this->transform, objectInit.view_port_center, objectInit.view_port_width, objectInit.view_port_height);
+		: GameObject::GameObject(static_cast<GameObject::ObjectInitializer>(objectInit)) {
+		this->m_view_camera = new component::CAT_ViewCamera(this->transform, 
+			dynamic_cast<component::CAT_Transform*>(objectInit.other_obj_components[objectInit.viewCameraInit.other_transform_name][objectInit.viewCameraInit.other_transform_id]), 
+			&(objectInit.viewCameraInit));
 
 		objectInit.projecter_ptr->set_camera(this->m_view_camera);
 

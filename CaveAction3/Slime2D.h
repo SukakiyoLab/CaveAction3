@@ -11,7 +11,7 @@
 namespace object {
 	class Slime2D : public AnimationEntity2D {
 	private:
-		component::CAT_NavMeshAgent* nm_agent_ptr;
+		component::CAT_NavMeshAgent2D* nm_agent_ptr;
 
 		component::CAT_SlimeController* slime_controller;
 
@@ -19,15 +19,19 @@ namespace object {
 
 		struct ObjectInitializer : AnimationEntity2D::ObjectInitializer {
 			//CAT_Input* player_input;
-			component::CAT_Transform* target_trans_ptr;
-			NavMeshSystem2D* nmsys_ptr;
+			//component::CAT_Transform* target_trans_ptr;
+			//NavMeshSystem2D* nmsys_ptr;
+			//std::string target_obj_name;
+			component::CAT_NavMeshAgent2D::ComponentInitializer navMeshAgent2DInit;
+
+			component::CAT_SlimeController::ComponentInitializer slimeInit;
 		};
 
 		Slime2D(ObjectInitializer objectInit);
 		~Slime2D();
 
 		void Update() override;
-		void Gain(double delta_time) override;
+		void Gain(int delta_time) override;
 
 	};
 

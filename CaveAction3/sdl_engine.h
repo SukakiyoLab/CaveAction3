@@ -28,6 +28,8 @@
 
 #include "shared_struct.h"
 
+#include "GameObject.h"
+
 #include "CameraObject.h"
 #include "AnimationEntity2D.h"
 #include "Player2D.h"
@@ -73,26 +75,30 @@ private:
     
     object::NavMeshEntity* nav_mesh_entity;
 
-    object::TilemapObject* field;
-    object::TilemapObject* field2;
-    object::TilemapObject* field3;
+    object::GameObject* field;
+    object::GameObject* field2;
+    object::GameObject* field3;
 
-    object::TilemapObject* wall;
-    object::TilemapObject* wall2;
-    object::TilemapObject* wall3;
+    object::GameObject* wall;
+    object::GameObject* wall2;
+    object::GameObject* wall3;
 
-    object::TilemapObject* roof;
-    object::TilemapObject* roof2;
-    object::TilemapObject* roof3;
+    object::GameObject* roof;
+    object::GameObject* roof2;
+    object::GameObject* roof3;
 
 
-    object::Player2D* gb1;
+    //object::Player2D* gb1;
 
-    object::AnimationEntity2D* gb2;
+    object::GameObject* gb2;
 
-    object::CameraObject* camera;
+    object::GameObject* camera;
 
-    object::Slime2D* gb3;
+    //object::Slime2D* gb3;
+
+    object::GameObject* playerObj;
+
+    object::GameObject* slimeObj;
 
 private:
 

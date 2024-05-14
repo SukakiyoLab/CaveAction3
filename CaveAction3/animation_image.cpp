@@ -15,18 +15,18 @@
 namespace component
 {
 
-	CAT_AnimationImage::CAT_AnimationImage(CAT_Transform *const transform, const char* xml_file, SDL_Renderer *const renderer, Eigen::Vector2i offset)
-		:CAT_ImageRoot(transform) {
+	CAT_AnimationImage::CAT_AnimationImage(CAT_Transform *const transform, ComponentInitializer* cInit, SDL_Renderer* renderer_ptr)
+		:CAT_ImageRoot(transform, static_cast<CAT_ImageRoot::ComponentInitializer*>(cInit)) {
 		debug::debugLog("Create Image!\n");
 		
 		CAT_ImageStorage *storage = CAT_ImageStorage::getInstance();
 
-		this->m_renderer = renderer;
-		this->offset = offset;
+		this->m_renderer = renderer_ptr;
+		this->offset = cInit->offset;
 
 		XMLLoader::AnimLoader animLoader;
 
-		animLoader.Load(xml_file);
+		animLoader.Load(cInit->xml_file);
 
 		for (int id = 0; id < animLoader.get_size(); id++) {
 
@@ -68,7 +68,7 @@ namespace component
 		}
 	}
 
-	void CAT_AnimationImage::gain(double delta_time) {
+	void CAT_AnimationImage::gain(int delta_time) {
 		sum_time += delta_time;
 	}
 

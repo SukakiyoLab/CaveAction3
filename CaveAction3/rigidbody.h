@@ -22,6 +22,7 @@
 
 #define DEFAULT_STATIC_VELOCITY (10)
 
+#include "component.h"
 
 
 using namespace Eigen;
@@ -31,7 +32,7 @@ namespace component
 {
 
 	
-	class CAT_Rigidbody
+	class CAT_Rigidbody : public CAT_Component
 	{
 	public:
 		typedef enum
@@ -55,14 +56,17 @@ namespace component
 		float static_friction_magnitude = DEFAULT_STATIC_MAGNITUDE;
 
 	public:
+		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
+			Type type = Newton;
+			float mass = DEFAULT_MASS;
+			float coefficient = DEFAULT_COEFFICIENT;
+			Vector3d virtual_normal_force = Vector3d(DEFAULT_NORMAL_X, DEFAULT_NORMAL_Y, DEFAULT_NORMAL_Z);
+		};
 
-		CAT_Rigidbody(
-			CAT_Transform* const transform,
-			Type type = Newton,
-			const float mass = DEFAULT_MASS,
-			const float coefficient = DEFAULT_COEFFICIENT,
-			const Vector3d virtual_normal_force = Vector3d(DEFAULT_NORMAL_X, DEFAULT_NORMAL_Y, DEFAULT_NORMAL_Z));
-		void gain(float delta_time);		// 速度、加速度を計算し、物体の位置を更新する//
+	public:
+
+		CAT_Rigidbody(CAT_Transform* const transform, ComponentInitializer* cInit);
+		void gain(int delta_time) override;		// 速度、加速度を計算し、物体の位置を更新する//
 		int addForce(const Vector3d force); // 物体にかかる力を保存する//
 		Vector3d get_velocity() {return this->m_velocity;}
 		void reset(); // 物体の速度を0にする//

@@ -2,35 +2,37 @@
 
 namespace object {
 	AnimationEntity2D::AnimationEntity2D(AnimationEntity2D::ObjectInitializer objectInit) 
-	: GameObject::GameObject({objectInit.position, objectInit.rotation, objectInit.scale}) {
-		this->animation_image = new component::CAT_AnimationImage(this->transform,objectInit.animation_data,objectInit.renderer, objectInit.image_offset);
-		this->animator_2d = new component::CAT_Animator2D(this->animation_image);
+	: GameObject::GameObject(static_cast<GameObject::ObjectInitializer>(objectInit)) {
+		this->animation_image = new component::CAT_AnimationImage(this->transform, &(objectInit.animImageInit), objectInit.renderer_ptr);
+		
+		objectInit.projecter_ptr->save(this->animation_image, objectInit.animImageInit.image_layer);
 
-		objectInit.projecter->save(this->animation_image, objectInit.image_layer);
+		this->animator_2d = new component::CAT_Animator2D(this->animation_image, &(objectInit.animator2DInit));
 
-		for (int i = 0; i < objectInit.animation_sets.size(); i++) {
-			this->animator_2d->save(std::get<0>(objectInit.animation_sets[i]), 
-									std::get<1>(objectInit.animation_sets[i]), 
-									std::get<2>(objectInit.animation_sets[i]));
-		}
+		
 
-		this->rigidbody = new component::CAT_Rigidbody(this->transform, objectInit.physics_type, objectInit.mass);
+		this->rigidbody = new component::CAT_Rigidbody(this->transform, &(objectInit.rigidbodyInit));
 
-		this->virtual_contoroller = new component::CAT_VirtualController(this->rigidbody, objectInit.input_speed);
-		this->virtual_contoroller->set_max_speed(objectInit.max_speed);
+		this->virtual_contoroller = new component::CAT_VirtualController(this->rigidbody, &(objectInit.virtualControllerInit));
+		//this->virtual_contoroller->set_max_speed(objectInit.max_speed);
 
 		this->box_collider = new component::CAT_BoxCollider2D(this->transform,
 			this->rigidbody,
-			objectInit.collider_layer,
-			objectInit.collider_w,
-			objectInit.collider_h,
-			objectInit.collider_offset);
-		objectInit.collider_manager->save(this->box_collider, objectInit.collider_layer);
+			&(objectInit.boxColliderInit));
+
+		objectInit.collider_manager_ptr->save(this->box_collider, objectInit.boxColliderInit.layer);
 
 #ifdef _DEBUG
 		component::CAT_BoxCollider2D::Range range = this->box_collider->get_range();
-		this->debug_image = new component::CAT_Image(this->transform, "./resource/imgs/panel1.png",objectInit.renderer,range.width / 32, range.height / 32, Eigen::Vector2f(range.offset[0], range.offset[1]), 100);
-		objectInit.projecter->save(this->debug_image, 8);
+		component::CAT_Image::ComponentInitializer debugImageInit;
+		debugImageInit.path = "./resource/imgs/panel1.png";
+		debugImageInit.width = range.width / 32;
+		debugImageInit.height = range.height / 32;
+		debugImageInit.offset = range.offset.cast<int>();
+		debugImageInit.image_alpha = 100;
+		debugImageInit.image_layer = 8;
+		this->debug_image = new component::CAT_Image(this->transform, &debugImageInit, objectInit.renderer_ptr);
+		objectInit.projecter_ptr->save(this->debug_image, debugImageInit.image_layer);
 #endif
 
 	}
@@ -50,7 +52,7 @@ namespace object {
 		//this->virtual_contoroller->input(Eigen::Vector3d(1, 0, 0));
 	}
 
-	void AnimationEntity2D::Gain(double delta_time) {
+	void AnimationEntity2D::Gain(int delta_time) {
 		
 
 		this->animation_image->gain(delta_time);

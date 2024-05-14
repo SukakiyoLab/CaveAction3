@@ -9,6 +9,10 @@
 
 #include <Windows.h>
 
+#define EIGEN_NO_DEBUG
+#define EIGEN_DONT_VECTORIZE
+#define EIGEN_DONT_PARALLELIZE
+#define EIGEN_MPL2_ONLY
 
 #ifndef _DEBUG
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {

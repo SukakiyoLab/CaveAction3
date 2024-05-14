@@ -4,9 +4,11 @@
 #include "transform.h"
 #include "nav_mesh_system2d.h"
 
+#include "component.h"
+
 namespace component {
 
-	class CAT_NavMeshAgent {
+	class CAT_NavMeshAgent2D : public CAT_Component {
 	private:
 		unsigned short current_id = 0;
 		unsigned short destination_id = 0;
@@ -24,7 +26,13 @@ namespace component {
 		Eigen::Vector2i vector_3d_to_2i(Eigen::Vector3d vec);
 
 	public:
-		CAT_NavMeshAgent(CAT_Transform* init_self, CAT_Transform* init_target, NavMeshSystem2D* init_nmsys_ptr);
+		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
+			std::string target_transform_name;
+			unsigned short target_transform_id;
+		};
+
+	public:
+		CAT_NavMeshAgent2D(CAT_Transform* init_self, CAT_Transform* init_target, NavMeshSystem2D* init_nmsys_ptr);
 
 		void calculate();
 

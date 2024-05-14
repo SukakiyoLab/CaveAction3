@@ -15,18 +15,16 @@ namespace component
 
     CAT_TileCollider2D::CAT_TileCollider2D(CAT_Transform* transform, 
                         CAT_Rigidbody* rigidbody, 
-                        unsigned short layer, 
-                        double width, 
-                        std::vector<std::vector<unsigned short>> tilemap_collider_init,
-                        const float magnitude,
-                        const int collision)
-    :CAT_Collider2D(transform, rigidbody, layer)                    
+                        ComponentInitializer* cInit)
+    :CAT_Collider2D(transform, rigidbody, static_cast<CAT_Collider2D::ComponentInitializer*>(cInit))                    
     {
-        this->m_width = width;
+        this->m_width = cInit->width;
+
+        this->m_collision = cInit->collision;
 
 
         //std::vector<std::vector<unsigned short>> csv_file = CSV_Load(std::string(file_name));
-        std::vector<std::vector<unsigned short>> csv_file = tilemap_collider_init;
+        std::vector<std::vector<unsigned short>> csv_file = cInit->tilemap_collider_init;
 
 
         int h_num = csv_file.size() + 2;

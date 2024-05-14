@@ -30,27 +30,30 @@ namespace object {
 
 	public:
 		struct ObjectInitializer : GameObject::ObjectInitializer{
-			const char* animation_data; /* AnimationImage */
-			SDL_Renderer* renderer;
-			Vector2i image_offset = Vector2i::Zero();
-			unsigned short image_layer;
-			ImageProjecter* projecter;
+			
+			component::CAT_AnimationImage::ComponentInitializer animImageInit;
 
-			std::vector<std::tuple<unsigned short, unsigned short, unsigned short>> animation_sets;
+			//std::vector<std::tuple<unsigned short, unsigned short, unsigned short>> animation_sets = std::vector<std::tuple<unsigned short, unsigned short, unsigned short>>();
 
-			component::CAT_Rigidbody::Type physics_type;
-			float mass;
+			component::CAT_Animator2D::ComponentInitializer animator2DInit;
 
+			component::CAT_Rigidbody::ComponentInitializer rigidbodyInit;
 
-			float input_speed;
-			float max_speed;
+			//component::CAT_Rigidbody::Type physics_type = component::CAT_Rigidbody::Type::Newton;
+			//float mass = 1.0f;
 
+			component::CAT_VirtualController::ComponentInitializer virtualControllerInit;
 
-			unsigned short collider_layer;
-			float collider_w;
-			float collider_h;
-			Vector2d collider_offset;
-			ColliderManager* collider_manager;
+			//float input_speed = 10.0f;
+			//float max_speed = 100.0f;
+
+			component::CAT_BoxCollider2D::ComponentInitializer boxColliderInit;
+
+			//unsigned short collider_layer = 0;
+			//float collider_w = 1.0f;
+			//float collider_h = 1.0f;
+			//Vector2d collider_offset = Vector2d::Zero();
+			//ColliderManager* collider_manager = nullptr;
 
 		};
 
@@ -58,7 +61,7 @@ namespace object {
 		virtual ~AnimationEntity2D();
 
 		virtual void Update() override;
-		virtual void Gain(double delta_time) override;
+		virtual void Gain(int delta_time) override;
 
 	};
 

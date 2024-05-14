@@ -29,8 +29,8 @@ namespace component
 
 
 		//SDL_Surface *m_image; // 画像 //
-		int m_w;			  // 幅 //
-		int m_h;			  // 高さ //
+		//int m_w;			  // 幅 //
+		//int m_h;			  // 高さ //
 		Eigen::Vector2i offset;
 		SDL_Renderer *m_renderer;
 		//SDL_Texture *m_texture; //
@@ -41,11 +41,19 @@ namespace component
 		double sum_time = 0;
 
 		std::vector<ImageState> states;
+
+	public:
+		struct ComponentInitializer : public CAT_ImageRoot::ComponentInitializer {
+			const char* xml_file;
+			Eigen::Vector2i offset = Vector2i{ 0,0 };
+			Uint8 image_alpha = 255;
+			unsigned short image_layer = 0;
+		};
 		
 
 	public:
-		CAT_AnimationImage(CAT_Transform *const transform, const char* xml_file, SDL_Renderer *const renderer, Eigen::Vector2i offset);
-		void gain(double delta_time);
+		CAT_AnimationImage(CAT_Transform *const transform, ComponentInitializer* cInit, SDL_Renderer* renderer_ptr);
+		void gain(int delta_time) override;
 		void project(CAT_ViewCamera* camera) override;
 		int change_animation(unsigned short new_id) override;
 		

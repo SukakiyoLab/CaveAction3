@@ -2,6 +2,7 @@
 
 namespace component {
 
+	// ‚±‚¢‚Â‚¾‚¯“ÁŽê
 	class CAT_AnimationRoot {
 	protected:
 		unsigned short state_id = 0;

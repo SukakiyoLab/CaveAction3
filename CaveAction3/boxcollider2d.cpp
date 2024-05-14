@@ -12,17 +12,12 @@ namespace component
 
     CAT_BoxCollider2D::CAT_BoxCollider2D(CAT_Transform* transform,
                                             CAT_Rigidbody* rigidbody,
-                                            unsigned short layer,
-                                            double w, 
-                                            double h, 
-                                            Eigen::Vector2d offset,
-                                            const float magnitude,
-                                            const int collision)
-        : CAT_Collider2D(transform, rigidbody, layer, magnitude, collision)
+                                            ComponentInitializer* cInit)
+        : CAT_Collider2D(transform, rigidbody, static_cast<CAT_Collider2D::ComponentInitializer*>(cInit))
     {
-        this->w = w;
-        this->h = h;
-        this->offset = offset;
+        this->w = cInit->w;
+        this->h = cInit->h;
+        this->offset = cInit->offset;
 
         this->update();
 

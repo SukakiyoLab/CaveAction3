@@ -26,6 +26,7 @@
     <ClInclude Include="boxcollider2d.h" />
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="character_controller.h" />
+    <ClInclude Include="component.h" />
     <ClInclude Include="NavMeshEntity.h" />
     <ClInclude Include="nav_mesh_agent2d.h" />
     <ClInclude Include="nav_mesh_system2d.h" />
@@ -71,6 +72,7 @@
     <ClCompile Include="character_controller.cpp" />
     <ClCompile Include="collider2d.cpp" />
     <ClCompile Include="collider_manager.cpp" />
+    <ClCompile Include="component.cpp" />
     <ClCompile Include="csv_loader.cpp" />
     <ClCompile Include="debug_log.cpp" />
     <ClCompile Include="GameObject.cpp" />

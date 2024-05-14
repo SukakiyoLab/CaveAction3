@@ -24,18 +24,24 @@ namespace component
         std::vector<std::pair<int, int>*> points;
 
         std::vector<Line> lines;
+
+
+    public:
+        struct ComponentInitializer : public CAT_Collider2D::ComponentInitializer {
+            double width;
+            std::vector<std::vector<unsigned short>> tilemap_collider_init;
+            int collision = 1;
+
+            unsigned short rigidbody_id = 0;
+        };
         
 
     public:
         CAT_TileCollider2D(CAT_Transform* transform, 
                         CAT_Rigidbody* rigidbody, 
-                        unsigned short layer, 
-                        double width, 
-                        std::vector<std::vector<unsigned short>> tilemap_collider_init,
-                        const float magnitude = DEFAULT_MAGNITUDE,
-                        const int collision = DEFAULT_COLLISION);
+                        ComponentInitializer* cInit);
         ~CAT_TileCollider2D();
-        void update();
+        void update() override;
         int judge(CAT_Collider2D *collider);
 
         

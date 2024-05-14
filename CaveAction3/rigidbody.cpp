@@ -7,22 +7,18 @@ using namespace Eigen;
 
 namespace component {
 
-	CAT_Rigidbody::CAT_Rigidbody(CAT_Transform* const transform,
-		Type type,
-		const float mass,
-		const float coefficient,
-		const Vector3d virtual_normal_force) {
+	CAT_Rigidbody::CAT_Rigidbody(CAT_Transform* const transform, CAT_Rigidbody::ComponentInitializer* cInit) {
 
-		this->type = type;
-		this->mass = mass;
-		this->friction_coefficient = coefficient;
+		this->type = cInit->type;
+		this->mass = cInit->mass;
+		this->friction_coefficient = cInit->coefficient;
 
 		this->m_transform = transform;
-		this->m_virtual_normal_force = virtual_normal_force;
+		this->m_virtual_normal_force = cInit->virtual_normal_force;
 	}
 
 
-	void CAT_Rigidbody::gain(float delta_time) {
+	void CAT_Rigidbody::gain(int delta_time) {
 		Vector3d pre_pos = this->m_transform->get_position();
 		Vector3d next_pos = pre_pos + (this->m_velocity) * delta_time / 1000;
 		next_pos = (next_pos).array().round().matrix();

@@ -2,9 +2,10 @@
 
 
 namespace component {
-	CAT_PlayerController::CAT_PlayerController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D)
-    : CAT_CharacterController(new_rigidbody, new_v_controller, new_animator2D){
-        
+	CAT_PlayerController::CAT_PlayerController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, CAT_PlayerController::ComponentInitializer* cInit)
+    : CAT_CharacterController(new_rigidbody, new_v_controller, new_animator2D, static_cast<CAT_CharacterController::ComponentInitializer*>(cInit)){
+        set_input(cInit->player_input_ptr);
+        printf("Hello World!");
 	}
 
 	void CAT_PlayerController::set_input(CAT_Input*const new_input) {

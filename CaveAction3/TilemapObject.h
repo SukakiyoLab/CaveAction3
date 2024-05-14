@@ -21,20 +21,23 @@ namespace object {
 
 	public:
 		struct ObjectInitializer : GameObject::ObjectInitializer {
-			const char* tilemap_file_path;
-			std::vector<std::vector<unsigned short>> tilemap_init;
-			SDL_Renderer* renderer;
-			unsigned short image_layer;
-			Uint8 image_alpha = 255;
-			ImageProjecter* projecter;
+			component::CAT_Tilemap::ComponentInitializer tilemapInit;
+			//ImageProjecter* projecter;
 
 
-			unsigned short collider_layer;
-			double collider_width;
-			std::vector<std::vector<unsigned short>> tilemap_collider_init;
-			float collision_magnitude;
-			int collision;
-			ColliderManager* collider_manager;
+			component::CAT_TileCollider2D::ComponentInitializer tileColliderInit;
+
+			//unsigned short collider_layer;
+			//double collider_width;
+			//std::vector<std::vector<unsigned short>> tilemap_collider_init;
+			//float collision_magnitude;
+			//int collision;
+			//ColliderManager* collider_manager;
+
+#ifdef _DEBUG
+			component::CAT_Tilemap::ComponentInitializer debugmapInit;
+#endif
+
 
 		};
 

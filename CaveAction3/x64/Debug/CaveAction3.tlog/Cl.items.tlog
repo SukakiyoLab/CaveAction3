@@ -7,6 +7,7 @@ C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\CameraObject.cpp;C:\Users
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\character_controller.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\character_controller.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\collider2d.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\collider2d.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\collider_manager.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\collider_manager.obj
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\component.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\component.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\csv_loader.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\csv_loader.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\debug_log.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\debug_log.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\GameObject.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Debug\GameObject.obj

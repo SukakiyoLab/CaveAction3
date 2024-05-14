@@ -7,14 +7,12 @@ namespace component
 
     CAT_Collider2D::CAT_Collider2D(CAT_Transform* transform, 
                                     CAT_Rigidbody* rigidbody, 
-                                    unsigned short layer, 
-                                    const float magnitude,
-                                    const int collision){
+                                    CAT_Collider2D::ComponentInitializer* cInit){
         this->m_transform = transform;
         this->m_rigidbody = rigidbody;
-        this->m_layer = layer;
-        this->m_force_magnitude = magnitude;
-        this->m_collision = collision;
+        this->m_layer = cInit->layer;
+        this->m_force_magnitude = cInit->magnitude;
+        this->m_collision = cInit->collision;
     }
 
     unsigned short CAT_Collider2D::get_layer()

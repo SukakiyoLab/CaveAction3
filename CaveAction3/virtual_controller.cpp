@@ -50,10 +50,10 @@ namespace component {
 
 	//public
 
-	CAT_VirtualController::CAT_VirtualController(CAT_Rigidbody* const rigidbody, const float input_speed) {
+	CAT_VirtualController::CAT_VirtualController(CAT_Rigidbody* const rigidbody, ComponentInitializer* const cInit) {
 		this->m_rigidbody = rigidbody;
-		this->m_input_speed = input_speed;
-		this->m_max_speed = DEFAULT_MAX_SPEED;
+		this->m_input_speed = cInit->input_speed;
+		this->m_max_speed = cInit->max_speed;
 	}
 
 	void CAT_VirtualController::set_max_speed(const float max_speed) {
@@ -71,7 +71,7 @@ namespace component {
 		this->m_real_input = input_force.normalized();
 	}
 
-	void CAT_VirtualController::gain(const float delta_time) {
+	void CAT_VirtualController::gain(const int delta_time) {
 		this->m_hold_time += delta_time;
 		
 		if (m_rigidbody->get_type() == CAT_Rigidbody::Newton) {

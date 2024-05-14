@@ -5,11 +5,17 @@
 
 namespace component {
 
-	class CAT_ImageRoot {
+	class CAT_ImageRoot : public CAT_Component{
 	protected:
 		CAT_Transform* m_transform;
+
 	public:
-		CAT_ImageRoot(CAT_Transform* const transform);
+		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
+
+		};
+
+	public:
+		CAT_ImageRoot(CAT_Transform* const transform, ComponentInitializer* cInit);
 		virtual void project(CAT_ViewCamera* camera);
 
 		double get_position_height();

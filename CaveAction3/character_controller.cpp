@@ -3,13 +3,13 @@
 
 namespace component {
 
-	CAT_CharacterController::CAT_CharacterController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D) {
+	CAT_CharacterController::CAT_CharacterController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, CAT_CharacterController::ComponentInitializer* cInit) {
 		this->m_rigidbody = new_rigidbody;
 		this->m_virtual_controller = new_v_controller;
 		this->m_animator2D = new_animator2D;
 	}
 
-    void CAT_CharacterController::gain(double delta_time) {
+    void CAT_CharacterController::gain(int delta_time) {
         this->state_continuation_time += delta_time;
     }
 

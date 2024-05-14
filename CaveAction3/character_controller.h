@@ -14,7 +14,7 @@
 
 namespace component {
 
-	class CAT_CharacterController {
+	class CAT_CharacterController : public CAT_Component {
 	protected:
 		
 		CAT_Rigidbody* m_rigidbody;
@@ -34,11 +34,18 @@ namespace component {
 	protected:
 		void change_state(unsigned short new_state_id);
 
+	public:
+		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
+			unsigned short rigidbody_id = 0;
+			unsigned short virtual_controller_id = 0;
+			unsigned short animator2D_id = 0;
+		};
+
 
 	public:
-		CAT_CharacterController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D);
+		CAT_CharacterController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, ComponentInitializer* cInit);
 		virtual void update();
-		void gain(double delta_time);
+		void gain(int delta_time);
 
 		void change_direction(short horizontal, short vertical);
 

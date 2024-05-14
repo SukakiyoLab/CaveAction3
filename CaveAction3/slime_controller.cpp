@@ -3,8 +3,8 @@
 
 namespace component {
 
-	CAT_SlimeController::CAT_SlimeController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, CAT_NavMeshAgent* new_nm_agent)
-	:CAT_CharacterController(new_rigidbody, new_v_controller, new_animator2D) {
+	CAT_SlimeController::CAT_SlimeController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, CAT_NavMeshAgent2D* new_nm_agent, CAT_SlimeController::ComponentInitializer* cInit)
+	:CAT_CharacterController(new_rigidbody, new_v_controller, new_animator2D, static_cast<CAT_CharacterController::ComponentInitializer*>(cInit)) {
         this->nm_agent_ptr = new_nm_agent;
 	}
 

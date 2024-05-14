@@ -2,8 +2,14 @@
 
 namespace component {
 
-	CAT_Animator2D::CAT_Animator2D(CAT_AnimationRoot* const anim_root) {
+	CAT_Animator2D::CAT_Animator2D(CAT_AnimationRoot* const anim_root, CAT_Animator2D::ComponentInitializer* cInit) {
 		this->animation_root = anim_root;
+
+		for (int i = 0; i < cInit->animation_sets.size(); i++) {
+			this->save(std::get<0>(cInit->animation_sets[i]),
+				std::get<1>(cInit->animation_sets[i]),
+				std::get<2>(cInit->animation_sets[i]));
+		}
 	}
 
 	unsigned short CAT_Animator2D::vector2i_to_key(Eigen::Vector2i* vector) {

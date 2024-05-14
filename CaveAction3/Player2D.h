@@ -13,14 +13,14 @@ namespace object {
 	public:
 
 		struct ObjectInitializer : AnimationEntity2D::ObjectInitializer {
-			CAT_Input* player_input;
+			component::CAT_PlayerController::ComponentInitializer playeyControllerInit;
 		};
 
 		Player2D(ObjectInitializer objectInit);
 		~Player2D();
 
 		void Update() override;
-		void Gain(double delta_time) override;
+		void Gain(int delta_time) override;
 
 	};
 

@@ -2,12 +2,15 @@
 
 namespace component {
 
-	CAT_ViewCamera::CAT_ViewCamera(CAT_Transform* camera_transform, Eigen::Vector3d view_port_center, unsigned int width, unsigned int height) {
-		this->m_target = nullptr;
+	CAT_ViewCamera::CAT_ViewCamera(CAT_Transform* camera_transform, CAT_Transform* target_transform, ComponentInitializer* cInit) {
+		//this->m_target = nullptr;
 		this->m_camera_transform = camera_transform;
-		this->m_width = width;
-		this->m_height = height;
-		this->m_view_port_center = view_port_center;
+		set_target(target_transform);
+		this->m_width = cInit->width;
+		this->m_height = cInit->height;
+		this->m_view_port_center = cInit->view_port_center;
+
+		
 		update();
 
 		if (this->m_target == nullptr) {

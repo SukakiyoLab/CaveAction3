@@ -2,7 +2,7 @@
 
 namespace component {
 
-	CAT_ImageRoot::CAT_ImageRoot(CAT_Transform* const transform) {
+	CAT_ImageRoot::CAT_ImageRoot(CAT_Transform* const transform, CAT_ImageRoot::ComponentInitializer* cInit) {
 		this->m_transform = transform;
 	};
 

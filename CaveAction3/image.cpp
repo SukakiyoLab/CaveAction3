@@ -6,15 +6,14 @@
 
 namespace component
 {
-
-	CAT_Image::CAT_Image(CAT_Transform *const transform, const char *path, SDL_Renderer *const renderer,float w, float h, Vector2f offset, Uint8 alpha)
-	:CAT_ImageRoot(transform){
+	CAT_Image::CAT_Image(CAT_Transform *const transform, ComponentInitializer* cInit, SDL_Renderer* const renderer_ptr)
+	:CAT_ImageRoot(transform,static_cast<CAT_ImageRoot::ComponentInitializer*>(cInit)){
 		debug::debugLog("Create Image!\n");
 		
 		CAT_ImageStorage *storage = CAT_ImageStorage::getInstance();
-		storage->save_image(path);
-		this->m_image = storage->get_image(path);
-		this->m_renderer = renderer;
+		storage->save_image(cInit->path);
+		this->m_image = storage->get_image(cInit->path);
+		this->m_renderer = renderer_ptr;
 
 		if (!this->m_image)
 		{
@@ -31,10 +30,10 @@ namespace component
 		SDL_QueryTexture(this->m_texture, &(this->m_format), NULL, &(this->m_w), &(this->m_h));
 		this->m_image_rect = SDL_Rect{0, 0, m_w, m_h};
 
-		this->project_width = w;
-		this->project_height = h;
-		this->project_offset = offset;
-		this->alpha = alpha;
+		this->project_width = cInit->width;
+		this->project_height = cInit->height;
+		this->project_offset = cInit->offset.cast<float>();
+		this->alpha = cInit->image_alpha;
 	}
 
 	void CAT_Image::project(CAT_ViewCamera* camera)

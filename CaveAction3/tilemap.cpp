@@ -8,14 +8,14 @@
 namespace component
 {
 
-    CAT_Tilemap::CAT_Tilemap(CAT_Transform *const transform, const char *tilemap_path, std::vector<std::vector<unsigned short>> tilemap_init, Uint8 alpha , SDL_Renderer *const renderer)
-    :CAT_ImageRoot(transform) {
+    CAT_Tilemap::CAT_Tilemap(CAT_Transform *const transform, CAT_Tilemap::ComponentInitializer* cInit, SDL_Renderer* renderer_ptr)
+    :CAT_ImageRoot(transform, static_cast<CAT_ImageRoot::ComponentInitializer*>(cInit)) {
         debug::debugLog("Create Tilemap!\n");
 
         CAT_ImageStorage *storage = CAT_ImageStorage::getInstance();
-        storage->save_image(tilemap_path);
-        this->m_image = storage->get_image(tilemap_path);
-        this->m_renderer = renderer;
+        storage->save_image(cInit->tilemap_path);
+        this->m_image = storage->get_image(cInit->tilemap_path);
+        this->m_renderer = renderer_ptr;
 
         if (!this->m_image)
         {
@@ -28,7 +28,7 @@ namespace component
 
         this->m_texture = SDL_CreateTextureFromSurface(m_renderer, m_image);
 
-        this->m_alpha = alpha;
+        this->m_alpha = cInit->image_alpha;
 
         SDL_QueryTexture(this->m_texture, &(this->m_format), NULL, &(this->m_w), &(this->m_h));
         int w_num = m_w / TILE_SIZE;
@@ -42,7 +42,7 @@ namespace component
         }
 
         //tile_init = CSV_Load(std::string(tilemap_init_path));
-        tile_init = tilemap_init;
+        tile_init = cInit->tilemap_init;
 
         Vector3d pos = this->m_transform->get_position();
 

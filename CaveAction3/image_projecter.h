@@ -18,7 +18,7 @@ public:
 
 	void set_camera(component::CAT_ViewCamera* viewcamera);
 
-	void save(component::CAT_ImageRoot* rawImage, unsigned char layer);
+	void save(component::CAT_ImageRoot* imageRoot, unsigned char layer);
 	void project();
 
 };

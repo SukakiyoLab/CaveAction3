@@ -16,11 +16,15 @@ namespace component {
 
 		SlimeState state = SlimeState::Move;
 
-		CAT_NavMeshAgent* nm_agent_ptr;
-
+		CAT_NavMeshAgent2D* nm_agent_ptr;
 
 	public:
-		CAT_SlimeController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, CAT_NavMeshAgent* new_nm_agent);
+		struct ComponentInitializer : public CAT_CharacterController::ComponentInitializer {
+			unsigned short nav_mesh_agent_id = 0;
+		};
+
+	public:
+		CAT_SlimeController(CAT_Rigidbody* const new_rigidbody, CAT_VirtualController* const new_v_controller, CAT_Animator2D* const new_animator2D, CAT_NavMeshAgent2D* new_nm_agent, ComponentInitializer* cInit);
 		void update() override;
 	};
 }

@@ -29,10 +29,18 @@ namespace component
 
         std::vector<std::vector<unsigned short>> tile_init;
 
+	public:
+		struct ComponentInitializer : public CAT_ImageRoot::ComponentInitializer {
+			const char* tilemap_path;
+			std::vector<std::vector<unsigned short>> tilemap_init;
+			unsigned short image_layer;
+			Uint8 image_alpha;
+			//SDL_Renderer* renderer;
+		};
 		
 
 	public:
-		CAT_Tilemap(CAT_Transform *const transform, const char *path, std::vector<std::vector<unsigned short>> tilemap_init,Uint8 alpha, SDL_Renderer *const renderer);
+		CAT_Tilemap(CAT_Transform *const transform, ComponentInitializer* cInit, SDL_Renderer* renderer_ptr);
 		void project(CAT_ViewCamera* camera) override;
     };
 }
