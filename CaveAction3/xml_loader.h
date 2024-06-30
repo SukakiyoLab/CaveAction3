@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <pugixml.hpp>
+//#include <pugixml.hpp>
 #include <cstdlib>
 
 #include <string>
@@ -10,6 +10,8 @@
 #include "debug_log.h"
 
 #include <map>
+
+#include "xml_data.h"
 
 namespace XMLLoader {
 
@@ -23,7 +25,7 @@ namespace XMLLoader {
 		std::vector<Animation> animations;
 
 	public:
-		void Load(const char* xml_file);
+		void Load(XMLData* data_name);
 
 		std::vector<std::string> get_filenames(unsigned short id) { return animations[id].filenames; }
 		std::vector<double> get_durations(unsigned short id) { return animations[id].durations; }
@@ -33,5 +35,5 @@ namespace XMLLoader {
 	};
 
 
-	std::vector<CAT_NMRect> NMRectLoad(const char* rect_data, Eigen::Vector2i offset);
+	std::vector<CAT_NMRect> NMRectLoad(XMLData* rect_data, Eigen::Vector2i offset);
 }

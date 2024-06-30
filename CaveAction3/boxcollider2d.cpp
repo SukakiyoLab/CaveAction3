@@ -53,7 +53,7 @@ namespace component
                         vec = 3000 * Vector3d(dist_vec[0], dist_vec[1], 0).normalized()
                                                     - 80 * relative_velocity;
                     }
-                    collider->add_force(vec);
+                    //collider->add_force(vec);
                 }
                 return 1;
             }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <list>
 
 #include "image_root.h"
 
@@ -9,7 +10,8 @@
 
 class ImageProjecter {
 private:
-	std::vector<std::vector<component::CAT_ImageRoot*>> image_table;
+	std::map<std::string, std::list<component::CAT_ImageRoot*>> image_map;
+	std::vector<std::vector<component::CAT_ImageRoot**>> image_table;
 	component::CAT_ViewCamera* m_viewcamera;
 public:
 
@@ -18,7 +20,9 @@ public:
 
 	void set_camera(component::CAT_ViewCamera* viewcamera);
 
-	void save(component::CAT_ImageRoot* imageRoot, unsigned char layer);
+	void save_generate_object(component::CAT_ImageRoot* imageRoot, unsigned char layer, std::string object_name);
 	void project();
+
+	void cancel(std::string object_name);
 
 };

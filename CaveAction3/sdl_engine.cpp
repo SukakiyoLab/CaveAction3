@@ -12,44 +12,21 @@
 //#include <pugixml.hpp>
 #include <iostream>
 
-#include "PlayerAnim1.h"
-#include "PlayerAnimTuple1.h"
-#include "CharacterAnim1.h"
-
-#include "slime_data.h"
-
-#include "RockAnim1.h"
-
-/*
-#include "TilemapData1.h"
-#include "TilemapData2.h"
-#include "TilemapData3.h"
-#include "TilemapDataCollider1.h"
-*/
-
-#include "tilemap/tilemap_data_1_1.h"
-#include "tilemap/tilemap_data_1_2.h"
-#include "tilemap/tilemap_data_1_3.h"
-#include "tilemap/tilemap_data_1_collider.h"
-
-#include "tilemap/tilemap_data_2_1.h"
-#include "tilemap/tilemap_data_2_2.h"
-#include "tilemap/tilemap_data_2_3.h"
-#include "tilemap/tilemap_data_2_collider.h"
-
-#include "tilemap/tilemap_data_3_1.h"
-#include "tilemap/tilemap_data_3_2.h"
-#include "tilemap/tilemap_data_3_3.h"
-#include "tilemap/tilemap_data_3_collider.h"
 
 
-#include "nav_mesh_rect1.h"
-#include "nav_mesh_bake1.h"
 
 
 
 int CAT_SDLEngine::InitEngine()
 {
+    /*
+    {
+        FunctionMap functionMap;
+        XMLData* xmlData = functionMap.use_char_func("slime_anim_data");
+        printf("data->animation->frame->filename : %s\n", xmlData->nexts["animation"][0]->nexts["frame"][0]->nexts["filename"][0]->item.c_str());
+    }
+    */
+
     /*NavMeshSystem2D nmsys(nav_mesh_rect1(), Eigen::Vector2i(0, 0));
     Eigen::Vector2i x(200, 50);
     debug::debugLog("ID : %d\n",nmsys.get_id(&x));
@@ -131,14 +108,28 @@ int CAT_SDLEngine::InitEngine()
 
     m_collider_manager = new ColliderManager();
 
-    m_nav_mesh_sys = new NavMeshSystem2D(nav_mesh_rect1(), nav_mesh_bake1(), Vector2i(-(32 * 5), -(32 * 12)));
+    functionMap = new FunctionMap();
+
+    //auto nav_mesh_rect = nav_mesh_rect1();
+    m_nav_mesh_sys = new NavMeshSystem2D(functionMap->use_char_func("nav_mesh_rect1"), functionMap->use_value_func("nav_mesh_bake1"), Vector2i(-(32 * 5), -(32 * 12)));
+
+    object_generator = new game_system_3::ObjectGenerator();
+
+    game_system_1::ObjectManager::ObjectManagerInitializer omInit;
+    omInit.input_ptr = &(this->input);
+    omInit.projecter_ptr = this->m_projecter;
+    omInit.coll_man_ptr = this->m_collider_manager;
+    omInit.renderer_ptr = this->m_renderer;
+    omInit.nav_mesh_system_ptr = this->m_nav_mesh_sys;
+    omInit.func_map_ptr = this->functionMap;
+    object_manager = new game_system_1::ObjectManager(object_generator, omInit);
 
     return 0;
 }
 
 int CAT_SDLEngine::InitObject()
 {
-
+    
     object::NavMeshEntity::ObjectInitializer navmeshInit = {};
     navmeshInit.projecter_ptr = m_projecter;
     navmeshInit.renderer_ptr = m_renderer;
@@ -149,216 +140,19 @@ int CAT_SDLEngine::InitObject()
     navmeshInit.renderer = m_renderer;
     navmeshInit.projecter = m_projecter;
 
-    nav_mesh_entity = new object::NavMeshEntity(navmeshInit);
-
-    
-    object::GameObject::ObjectInitializer objInit_tilemap = {};
-    objInit_tilemap.projecter_ptr = m_projecter;
-    objInit_tilemap.collider_manager_ptr = m_collider_manager;
-    objInit_tilemap.renderer_ptr = m_renderer;
-    objInit_tilemap.transformInit.position = { -160, -160, 0 };
-    objInit_tilemap.transformInit.rotation = { 0, 0, 0 };
-    objInit_tilemap.transformInit.scale = { 1, 1, 1 };
-    component::CAT_Rigidbody::ComponentInitializer rigidbodyInit_tilemap = {};
-    component::CAT_Tilemap::ComponentInitializer tilemapInit_tilemap = {};
-    tilemapInit_tilemap.tilemap_path = "./resource/imgs/tilemap1.png";
-    tilemapInit_tilemap.tilemap_init = tilemap_data_1_1();
-    tilemapInit_tilemap.image_layer = 0;
-    tilemapInit_tilemap.image_alpha = 255;
-    component::CAT_TileCollider2D::ComponentInitializer tileCollider2DInit_tilemap = {};
-    tileCollider2DInit_tilemap.layer = 0;
-    tileCollider2DInit_tilemap.width = 32;
-    tileCollider2DInit_tilemap.tilemap_collider_init = tilemap_data_1_collider();
-    tileCollider2DInit_tilemap.magnitude = -1;
-    tileCollider2DInit_tilemap.collision = -1;
-    objInit_tilemap.selfComponentInits.push_back(&rigidbodyInit_tilemap);
-    objInit_tilemap.selfComponentInits.push_back(&tilemapInit_tilemap);
-    objInit_tilemap.selfComponentInits.push_back(&tileCollider2DInit_tilemap);
-    field = new object::GameObject(objInit_tilemap);
+    nav_mesh_entity = new object::NavMeshEntity(&navmeshInit);
 
 
-    /*
-    tilemapObjInit.transformInit.position = { -160 + (32 * 10),-160,0 };
-    tilemapObjInit.tilemapInit.tilemap_init = tilemap_data_3_1();
-    tilemapObjInit.tileColliderInit.tilemap_collider_init = tilemap_data_3_collider();
-    field3 = new object::TilemapObject(tilemapObjInit);
-    */
+    object_generator->save_generate_object(functionMap->use_char_func("room_object_data1"));
+    object_generator->save_generate_object(functionMap->use_char_func("room_object_data2"));
+    object_generator->save_generate_object(functionMap->use_char_func("room_object_data3"));
 
-    objInit_tilemap.transformInit.position = { -160 + (32 * 10), - 160, 0 };
-    tilemapInit_tilemap.tilemap_init = tilemap_data_3_1();
-    tileCollider2DInit_tilemap.tilemap_collider_init = tilemap_data_3_collider();
-    field3 = new object::GameObject(objInit_tilemap);
+    object_generator->save_generate_object(functionMap->use_char_func("rock_object_data"));
+    object_generator->save_generate_object(functionMap->use_char_func("player_object_data"));
+    object_generator->save_generate_object(functionMap->use_char_func("slime_object_data"));
+    object_generator->save_generate_object(functionMap->use_char_func("camera_object_debug_data"));
 
-
-    objInit_tilemap.transformInit.position = { -160, -160 - (32 * 7),0 };
-    tilemapInit_tilemap.tilemap_path = "./resource/imgs/tilemap1.png";
-    tilemapInit_tilemap.tilemap_init = tilemap_data_2_1();
-    tilemapInit_tilemap.image_layer = 0;
-    tilemapInit_tilemap.image_alpha = 255;
-    tileCollider2DInit_tilemap.tilemap_collider_init = tilemap_data_2_collider();
-    field2 = new object::GameObject(objInit_tilemap);
-
-
-    
-    objInit_tilemap.transformInit.position = { -160, -160 - 64,0 };
-    tilemapInit_tilemap.tilemap_path = "./resource/imgs/tilemap1.png";
-    tilemapInit_tilemap.tilemap_init = tilemap_data_1_2();
-    tilemapInit_tilemap.image_layer = 3;
-    tilemapInit_tilemap.image_alpha = 255;
-    tileCollider2DInit_tilemap.layer = 63;
-    roof = new object::GameObject(objInit_tilemap);
-
-
-    objInit_tilemap.transformInit.position = { -160 + (32 * 10), -160 - 64,0 };
-    tilemapInit_tilemap.tilemap_init = tilemap_data_3_2();
-    roof3 = new object::GameObject(objInit_tilemap);
-
-
-    objInit_tilemap.transformInit.position = { -160, -160 - 64 - (32 * 7),0 };
-    tilemapInit_tilemap.tilemap_init = tilemap_data_2_2();
-    roof2 = new object::GameObject(objInit_tilemap);
-
-
-    objInit_tilemap.transformInit.position = { -160, -160 - 64,0 };
-    tilemapInit_tilemap.tilemap_init = tilemap_data_1_3();
-    tilemapInit_tilemap.image_layer = 1;
-    tileCollider2DInit_tilemap.layer = 63;
-    wall = new object::GameObject(objInit_tilemap);
-
-
-
-    objInit_tilemap.transformInit.position = { -160 + (32 * 10), -160 - 64,0 };
-    tilemapInit_tilemap.tilemap_init = tilemap_data_3_3();
-    wall3 = new object::GameObject(objInit_tilemap);
-
-
-
-    objInit_tilemap.transformInit.position = { -160, -160 - 64 - (32 * 7),0 };
-    tilemapInit_tilemap.tilemap_init = tilemap_data_2_3();
-    wall2 = new object::GameObject(objInit_tilemap);
-
-
-
-
-    object::GameObject::ObjectInitializer rockInit = {};
-    rockInit.projecter_ptr = m_projecter;
-    rockInit.collider_manager_ptr = m_collider_manager;
-    rockInit.renderer_ptr = m_renderer;
-    rockInit.transformInit.position = { 60,0,0 };
-    rockInit.transformInit.rotation = { 0,0,0 };
-    rockInit.transformInit.scale = { 1,1,1 };
-    component::CAT_AnimationImage::ComponentInitializer animImageInit_rock = {};
-    animImageInit_rock.xml_file = rock_anim_1();
-    animImageInit_rock.image_layer = 2;
-    component::CAT_Animator2D::ComponentInitializer animator2DInit_rock = {};
-    animator2DInit_rock.animation_sets = { {0,0,0},{0,1,0},{0,2,0},{0,3,0} };
-    component::CAT_Rigidbody::ComponentInitializer rigidbodyInit_rock = {};
-    rigidbodyInit_rock.type = component::CAT_Rigidbody::Newton;
-    rigidbodyInit_rock.mass = 8.0;
-    component::CAT_VirtualController::ComponentInitializer virtualControllerInit_rock = {};
-    virtualControllerInit_rock.input_speed = M_PI * 2;
-    virtualControllerInit_rock.max_speed = 150;
-    component::CAT_BoxCollider2D::ComponentInitializer boxCollider2DInit_rock = {};
-    boxCollider2DInit_rock.layer = 0;
-    boxCollider2DInit_rock.w = 40;
-    boxCollider2DInit_rock.h = 40;
-    boxCollider2DInit_rock.offset = { 0,0 };
-    rockInit.selfComponentInits.push_back(&animImageInit_rock);
-    rockInit.selfComponentInits.push_back(&animator2DInit_rock);
-    rockInit.selfComponentInits.push_back(&rigidbodyInit_rock);
-    rockInit.selfComponentInits.push_back(&virtualControllerInit_rock);
-    rockInit.selfComponentInits.push_back(&boxCollider2DInit_rock);
-    gb2 = new object::GameObject(rockInit);
-
-
-
-    object::GameObject::ObjectInitializer plObjInit = {};
-    plObjInit.projecter_ptr = m_projecter;
-    plObjInit.collider_manager_ptr = m_collider_manager;
-    plObjInit.renderer_ptr = m_renderer;
-    plObjInit.transformInit.position = { 0,0,0 };
-    plObjInit.transformInit.rotation = { 0,0,0 };
-    plObjInit.transformInit.scale = { 1,1,1 };
-    component::CAT_AnimationImage::ComponentInitializer animImageInit;
-    animImageInit.xml_file = player_anim_1();
-    animImageInit.offset = Eigen::Vector2i(0, -16);
-    animImageInit.image_layer = 2;
-    component::CAT_Animator2D::ComponentInitializer animatorInit;
-    animatorInit.animation_sets = player_anim_tuple1();
-    component::CAT_Rigidbody::ComponentInitializer rigidbodyInit;
-    rigidbodyInit.type = component::CAT_Rigidbody::Newton;
-    rigidbodyInit.mass = 4.0;
-    component::CAT_VirtualController::ComponentInitializer virtualControllerInit;
-    virtualControllerInit.input_speed = M_PI * 2;
-    virtualControllerInit.max_speed = 150;
-    component::CAT_BoxCollider2D::ComponentInitializer boxColliderInit;
-    boxColliderInit.layer = 0;
-    boxColliderInit.w = 32;
-    boxColliderInit.h = 32;
-    boxColliderInit.offset = { 0.0,0.0 };
-    component::CAT_PlayerController::ComponentInitializer playerControllerInit;
-    playerControllerInit.player_input_ptr = &(this->input);
-    plObjInit.selfComponentInits.push_back(&animImageInit);
-    plObjInit.selfComponentInits.push_back(&animatorInit);
-    plObjInit.selfComponentInits.push_back(&rigidbodyInit);
-    plObjInit.selfComponentInits.push_back(&virtualControllerInit);
-    plObjInit.selfComponentInits.push_back(&boxColliderInit);
-    plObjInit.selfComponentInits.push_back(&playerControllerInit);
-    playerObj = new object::GameObject(plObjInit);
-
-
-    object::GameObject::ObjectInitializer cameraInit = {};
-    cameraInit.projecter_ptr = m_projecter;
-    cameraInit.transformInit.position = plObjInit.transformInit.position;
-    cameraInit.transformInit.rotation = plObjInit.transformInit.rotation;
-    cameraInit.transformInit.scale = plObjInit.transformInit.scale;
-    component::CAT_ViewCamera::ComponentInitializer viewCameraInit;
-    viewCameraInit.view_port_center = Eigen::Vector3d(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0);
-    viewCameraInit.other_transform_name = "player::CAT_Transform";
-    viewCameraInit.other_transform_id = 0;
-    cameraInit.selfComponentInits.push_back(&viewCameraInit);
-    cameraInit.other_obj_components["player::CAT_Transform"].push_back(playerObj->GetTransform());
-    camera = new object::GameObject(cameraInit);
-
-
-    object::GameObject::ObjectInitializer slmObjInit;
-    slmObjInit.projecter_ptr = m_projecter;
-    slmObjInit.collider_manager_ptr = m_collider_manager;
-    slmObjInit.nav_mesh_system_ptr = m_nav_mesh_sys;
-    slmObjInit.renderer_ptr = m_renderer;
-    slmObjInit.transformInit.position = { 320,0,0 };
-    slmObjInit.transformInit.rotation = { 0,0,0 };
-    slmObjInit.transformInit.scale = { 2,2,1 };
-    slmObjInit.other_obj_components["player::CAT_Transform"].push_back(playerObj->GetTransform());
-    animImageInit.xml_file = slime_data();
-    animImageInit.image_layer = 2;
-    animatorInit.animation_sets = player_anim_tuple1();
-    rigidbodyInit.type = component::CAT_Rigidbody::Newton;
-    rigidbodyInit.mass = 4.0;
-    virtualControllerInit.input_speed = M_PI * 2;
-    virtualControllerInit.max_speed = 100;
-    boxColliderInit.layer = 0;
-    boxColliderInit.w = 16;
-    boxColliderInit.h = 16;
-    boxColliderInit.offset = { 0.0,0.0 };
-    component::CAT_NavMeshAgent2D::ComponentInitializer navMeshAgent2DInit;
-    navMeshAgent2DInit.target_transform_name = "player::CAT_Transform";
-    navMeshAgent2DInit.target_transform_id = 0;
-    component::CAT_SlimeController::ComponentInitializer slimeControllerInit;
-    slmObjInit.selfComponentInits.push_back(&animImageInit);
-    slmObjInit.selfComponentInits.push_back(&animatorInit);
-    slmObjInit.selfComponentInits.push_back(&rigidbodyInit);
-    slmObjInit.selfComponentInits.push_back(&virtualControllerInit);
-    slmObjInit.selfComponentInits.push_back(&boxColliderInit);
-    slmObjInit.selfComponentInits.push_back(&navMeshAgent2DInit);
-    slmObjInit.selfComponentInits.push_back(&slimeControllerInit);
-    slimeObj = new object::GameObject(slmObjInit);
-    
-
-    
-
-
-
+    object_generator->save_delete_object("rock"); /* Šâ‚Ìíœ */
 
 
     return 0;
@@ -530,24 +324,20 @@ int CAT_SDLEngine::Update()
 
     }
 
+    object_manager->generate_objects();
+    object_manager->delete_objects();
+    object_manager->reset_generator();
 
 
-        
-
-    //gb1->Update();
-    gb2->Update();
-
-    camera->Update();
-
-    //gb3->Update();
-
-    playerObj->Update();
-
-    slimeObj->Update();
-
-    this->Draw();
+    object_manager->gain(frameTime);
 
     this->m_collider_manager->judge();
+
+    object_manager->update();
+    
+    this->Draw();
+    
+    
 
     frameTime = SDL_GetTicks() - frameStart;
     if (frameTime < 15)
@@ -565,16 +355,7 @@ int CAT_SDLEngine::Update()
 
     //preDeltaTime = frameTime;
 
-    debug::debugLog("%d\n", preDeltaTime);
-
-    //gb1->Gain(frameTime);
-    gb2->Gain(frameTime);
-
-    //gb3->Gain(frameTime);
-
-    playerObj->Gain(frameTime);
-    slimeObj->Gain(frameTime);
-
+    //debug::debugLog("%d\n", preDeltaTime);
 
 
     count++;
@@ -594,48 +375,31 @@ int CAT_SDLEngine::Draw() {
     return 0;
 }
 
-int CAT_SDLEngine::Finish(){
-    if(!quit){
-		SDL_Delay(5000);
-	}
+int CAT_SDLEngine::Finish() {
+    if (!quit) {
+        SDL_Delay(5000);
+    }
 
     delete nav_mesh_entity;
 
-    delete camera;
-
-    delete field;
-    delete field2;
-    delete field3;
-
-    delete roof;
-    delete roof2;
-    delete roof3;
-
-    delete wall;
-    delete wall2;
-    delete wall3;
-
-    //delete gb1;
-    delete gb2;
-
-    delete playerObj;
-    delete slimeObj;
-
-	CAT_ImageStorage::destroy();
+    CAT_ImageStorage::destroy();
     delete m_projecter;
     delete m_collider_manager;
 
     delete m_nav_mesh_sys;
+    delete functionMap;
+
+    delete object_manager;
+    delete object_generator;
 
     this->RemoveController();
-	SDL_DestroyRenderer(m_renderer);
-	SDL_DestroyWindow(m_window);
-	SDL_Quit();
+    SDL_DestroyRenderer(m_renderer);
+    SDL_DestroyWindow(m_window);
+    SDL_Quit();
 
+    
 
     return 0;
-
-
 }
 
 int CAT_SDLEngine::Judge(){

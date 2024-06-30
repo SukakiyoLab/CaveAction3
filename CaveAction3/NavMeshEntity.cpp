@@ -1,11 +1,11 @@
 #include "NavMeshEntity.h"
 
 namespace object {
-	NavMeshEntity::NavMeshEntity(ObjectInitializer objectInit)
-		: GameObject::GameObject(static_cast<GameObject::ObjectInitializer>(objectInit)) {
+	NavMeshEntity::NavMeshEntity(ObjectInitializer* objectInit)
+		: GameObject::GameObject(static_cast<GameObject::ObjectInitializer*>(objectInit)) {
 
 #ifdef _DEBUG
-		for (auto rect : objectInit.rect_list) {
+		for (auto rect : objectInit->rect_list) {
 
 			component::CAT_Image::ComponentInitializer debugInitImage;
 
@@ -18,9 +18,9 @@ namespace object {
 
 			image_list.push_back(new component::CAT_Image(this->transform,
 				&debugInitImage,
-				objectInit.renderer_ptr
+				objectInit->renderer_ptr
 			));
-			objectInit.projecter->save(image_list[image_list.size() - 1], debugInitImage.image_layer);
+			objectInit->projecter->save_generate_object(image_list[image_list.size() - 1], debugInitImage.image_layer, this->name);
 		}
 #endif
 	}

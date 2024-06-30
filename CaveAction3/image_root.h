@@ -20,6 +20,6 @@ namespace component {
 
 		double get_position_height();
 
-		static bool cmp(CAT_ImageRoot* a, CAT_ImageRoot* b);
+		static bool cmp(CAT_ImageRoot** a, CAT_ImageRoot** b);
 	};
 }

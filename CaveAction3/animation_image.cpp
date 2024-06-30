@@ -26,7 +26,7 @@ namespace component
 
 		XMLLoader::AnimLoader animLoader;
 
-		animLoader.Load(cInit->xml_file);
+		animLoader.Load(cInit->data_name);
 
 		for (int id = 0; id < animLoader.get_size(); id++) {
 

@@ -22,7 +22,7 @@ namespace object {
 		};
 
 	public:
-		NavMeshEntity(ObjectInitializer objectInit);
+		NavMeshEntity(ObjectInitializer* objectInit);
 		~NavMeshEntity();
 		
 

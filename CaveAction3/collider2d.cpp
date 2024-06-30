@@ -44,4 +44,16 @@ namespace component
     Eigen::Vector3d CAT_Collider2D::get_velocity(){
         return this->m_rigidbody->get_velocity();
     }
+
+    float CAT_Collider2D::get_mass() {
+        return this->m_rigidbody->get_mass();
+    }
+
+    Eigen::Vector3d CAT_Collider2D::get_sum_force() {
+        return this->m_rigidbody->get_sum_force();
+    }
+
+    void CAT_Collider2D::reset_generator() {
+        this->m_rigidbody->reset_generator();
+    }
 }

@@ -15,6 +15,7 @@ namespace component
         CAT_ImageStorage *storage = CAT_ImageStorage::getInstance();
         storage->save_image(cInit->tilemap_path);
         this->m_image = storage->get_image(cInit->tilemap_path);
+        this->m_offset = cInit->offset;
         this->m_renderer = renderer_ptr;
 
         if (!this->m_image)
@@ -46,10 +47,10 @@ namespace component
 
         Vector3d pos = this->m_transform->get_position();
 
-        int loop_h = tile_init.size();
+        int loop_h = tile_init->size();
         if (loop_h == 0)
             return;
-        int loop_w = tile_init.at(0).size();
+        int loop_w = tile_init->at(0).size();
         for (int i = 0; i < loop_h; i++)
         {
             for (int j = 0; j < loop_w; j++)
@@ -69,13 +70,13 @@ namespace component
 		// float draw_h = 32;
 		// float draw_w = 32;
 
-		Vector3d pos = this->m_transform->get_position() - camera->get_position() + camera->get_view_port_center();
+		Vector3d pos = this->m_transform->get_position() - camera->get_position() + camera->get_view_port_center() + Eigen::Vector3d((double)this->m_offset[0], (double)this->m_offset[1],0);
                 
         
-        int loop_h = tile_init.size();
+        int loop_h = tile_init->size();
         if (loop_h == 0)
             return;
-        int loop_w = tile_init.at(0).size();
+        int loop_w = tile_init->at(0).size();
         for (int i = 0; i < loop_h; i++)
         {
             for (int j = 0; j < loop_w; j++)
@@ -95,7 +96,7 @@ namespace component
 
                     SDL_RenderCopy(this->m_renderer,
                         this->m_texture,
-                        &(this->m_image_rect[tile_init.at(i).at(j)]),
+                        &(this->m_image_rect[tile_init->at(i).at(j)]),
                         &(this->m_draw_rect[tile_num])
                     );
                 }

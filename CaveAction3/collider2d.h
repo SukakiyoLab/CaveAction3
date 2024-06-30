@@ -32,6 +32,8 @@ namespace component
             int collision = DEFAULT_COLLISION;
         };
 
+        
+
     public:
         CAT_Collider2D(CAT_Transform* transform, 
                         CAT_Rigidbody* const rigidbody, 
@@ -42,6 +44,9 @@ namespace component
         int get_collision();
         void add_force(Eigen::Vector3d force);
         Eigen::Vector3d get_velocity();
+        float get_mass();
+        Eigen::Vector3d get_sum_force();
+        void reset_generator();
     };
 
 }

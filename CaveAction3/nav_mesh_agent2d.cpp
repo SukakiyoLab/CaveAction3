@@ -1,6 +1,8 @@
 #include "nav_mesh_agent2d.h"
 
 
+
+
 namespace component {
 
 	Eigen::Vector2i CAT_NavMeshAgent2D::vector_3d_to_2i(Eigen::Vector3d vec) {
@@ -20,6 +22,7 @@ namespace component {
 		this->current_id = this->nmsys_ptr->get_id(vector_3d_to_2i(this->self_transform_ptr->get_position()));
 		this->destination_id = this->nmsys_ptr->get_id(vector_3d_to_2i(this->target_transform_ptr->get_position()));
 
+		debug::debugLog("Current : %d Destination : %d\n", this->current_id, this->destination_id);
 		
 		this->current_rect_ptr = this->nmsys_ptr->get_rect(this->current_id);
 		this->next_rect_ptr = this->nmsys_ptr->get_rect(this->nmsys_ptr->get_next_info(this->current_id, this->destination_id).first);
@@ -30,16 +33,16 @@ namespace component {
 	bool CAT_NavMeshAgent2D::check() {
 		Eigen::Vector2i current_pos_2d = vector_3d_to_2i(this->self_transform_ptr->get_position());
 
-		if (current_pos_2d[0] < current_rect_ptr->left) {
+		if (current_pos_2d[0] < current_rect_ptr->left - NAVMESH_OFFSET) {
 			return true;
 		}
-		else if (current_pos_2d[0] > current_rect_ptr->right) {
+		else if (current_pos_2d[0] > current_rect_ptr->right + NAVMESH_OFFSET) {
 			return true;
 		}
-		else if (current_pos_2d[1] < current_rect_ptr->top) {
+		else if (current_pos_2d[1] < current_rect_ptr->top - NAVMESH_OFFSET) {
 			return true;
 		}
-		else if (current_pos_2d[1] > current_rect_ptr->bottom) {
+		else if (current_pos_2d[1] > current_rect_ptr->bottom + NAVMESH_OFFSET) {
 			return true;
 		}
 

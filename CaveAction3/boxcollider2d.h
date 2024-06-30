@@ -1,7 +1,8 @@
 #pragma once
 #include "collider2d.h"
 
-
+#include "xml_data.h"
+#include "function_map.h"
 
 namespace component
 {
@@ -33,6 +34,19 @@ namespace component
             Eigen::Vector2d offset = Eigen::Vector2d::Zero();
             unsigned short rigidbody_id = 0;
         };
+
+        static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+            ComponentInitializer* cInit_ptr = new ComponentInitializer;
+            cInit_ptr->layer = std::stoi(xmldata_ptr->nexts["layer"][0]->item);
+            cInit_ptr->magnitude = std::stof(xmldata_ptr->nexts["magnitude"][0]->item);
+            cInit_ptr->collision = std::stoi(xmldata_ptr->nexts["collision"][0]->item);
+            cInit_ptr->w = std::stod(xmldata_ptr->nexts["w"][0]->item);
+            cInit_ptr->h = std::stod(xmldata_ptr->nexts["h"][0]->item);
+            cInit_ptr->offset = Eigen::Vector2d{std::stod(xmldata_ptr->nexts["offset"][0]->nexts["x"][0]->item),std::stod(xmldata_ptr->nexts["offset"][0]->nexts["y"][0]->item)};
+            cInit_ptr->rigidbody_id = std::stoi(xmldata_ptr->nexts["rigidbody_id"][0]->item);
+
+            return cInit_ptr;
+        }
 
 
     public:

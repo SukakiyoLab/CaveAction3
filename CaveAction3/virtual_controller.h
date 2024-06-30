@@ -9,6 +9,9 @@
 
 #include "component.h"
 
+#include "xml_data.h"
+#include "function_map.h"
+
 #define CAT_INPUT_SPEED (10.0)
 #define CAT_MAX_SPEED (100.0)
 
@@ -39,6 +42,15 @@ namespace component
 			float input_speed = CAT_INPUT_SPEED;
 			float max_speed = CAT_MAX_SPEED;
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			cInit_ptr->rigidbody_id = std::stoi(xmldata_ptr->nexts["rigidbody_id"][0]->item);
+			cInit_ptr->input_speed = std::stof(xmldata_ptr->nexts["input_speed"][0]->item);
+			cInit_ptr->max_speed = std::stof(xmldata_ptr->nexts["max_speed"][0]->item);
+
+			return cInit_ptr;
+		}
 
 	public:
 		CAT_VirtualController(CAT_Rigidbody *const rigidbody, ComponentInitializer* const cInit);

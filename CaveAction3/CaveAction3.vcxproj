@@ -19,21 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimationEntity2D.h" />
     <ClInclude Include="animation_root.h" />
     <ClInclude Include="animator2d.h" />
     <ClInclude Include="animation_image.h" />
     <ClInclude Include="boxcollider2d.h" />
-    <ClInclude Include="CameraObject.h" />
     <ClInclude Include="character_controller.h" />
     <ClInclude Include="component.h" />
     <ClInclude Include="NavMeshEntity.h" />
     <ClInclude Include="nav_mesh_agent2d.h" />
     <ClInclude Include="nav_mesh_system2d.h" />
-    <ClInclude Include="Slime2D.h" />
+    <ClInclude Include="object_generator.h" />
+    <ClInclude Include="object_manager.h" />
+    <ClInclude Include="pointer_wrapper.h" />
     <ClInclude Include="slime_controller.h" />
     <ClInclude Include="view_camera.h" />
-    <ClInclude Include="CharacterAnim1.h" />
     <ClInclude Include="collider2d.h" />
     <ClInclude Include="collider_manager.h" />
     <ClInclude Include="csv_loader.h" />
@@ -42,33 +41,22 @@
     <ClInclude Include="image.h" />
     <ClInclude Include="image_projecter.h" />
     <ClInclude Include="image_storage.h" />
-    <ClInclude Include="Player2D.h" />
-    <ClInclude Include="PlayerAnim1.h" />
-    <ClInclude Include="PlayerAnimTuple1.h" />
     <ClInclude Include="player_controller.h" />
     <ClInclude Include="image_root.h" />
     <ClInclude Include="rigidbody.h" />
-    <ClInclude Include="RockAnim1.h" />
     <ClInclude Include="sdl_engine.h" />
     <ClInclude Include="shared_struct.h" />
     <ClInclude Include="tilecollider2d.h" />
     <ClInclude Include="tilemap.h" />
-    <ClInclude Include="TilemapData1.h" />
-    <ClInclude Include="TilemapData2.h" />
-    <ClInclude Include="TilemapData3.h" />
-    <ClInclude Include="TilemapDataCollider1.h" />
-    <ClInclude Include="TilemapObject.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="virtual_controller.h" />
     <ClInclude Include="xml_loader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnimationEntity2D.cpp" />
     <ClCompile Include="animation_image.cpp" />
     <ClCompile Include="animation_root.cpp" />
     <ClCompile Include="animator2d.cpp" />
     <ClCompile Include="boxcollider2d.cpp" />
-    <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="character_controller.cpp" />
     <ClCompile Include="collider2d.cpp" />
     <ClCompile Include="collider_manager.cpp" />
@@ -83,16 +71,14 @@
     <ClCompile Include="NavMeshEntity.cpp" />
     <ClCompile Include="nav_mesh_agent2d.cpp" />
     <ClCompile Include="nav_mesh_system2d.cpp" />
-    <ClCompile Include="Player2D.cpp" />
+    <ClCompile Include="object_manager.cpp" />
     <ClCompile Include="player_controller.cpp" />
     <ClCompile Include="image_root.cpp" />
     <ClCompile Include="rigidbody.cpp" />
     <ClCompile Include="sdl_engine.cpp" />
-    <ClCompile Include="Slime2D.cpp" />
     <ClCompile Include="slime_controller.cpp" />
     <ClCompile Include="tilecollider2d.cpp" />
     <ClCompile Include="tilemap.cpp" />
-    <ClCompile Include="TilemapObject.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="view_camera.cpp" />
     <ClCompile Include="virtual_controller.cpp" />

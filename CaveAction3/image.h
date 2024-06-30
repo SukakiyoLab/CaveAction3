@@ -9,6 +9,9 @@
 #include "image_root.h"
 #include "image_projecter.h"
 
+#include "xml_data.h"
+#include "function_map.h"
+
 namespace component
 {
 
@@ -40,6 +43,18 @@ namespace component
 			unsigned short image_layer = 0;
 
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			cInit_ptr->path = xmldata_ptr->nexts["path"][0]->item.c_str();
+			cInit_ptr->width = std::stof(xmldata_ptr->nexts["width"][0]->item);
+			cInit_ptr->height = std::stof(xmldata_ptr->nexts["height"][0]->item);
+			cInit_ptr->offset = Vector2i{ std::stoi(xmldata_ptr->nexts["offset"][0]->nexts["x"][0]->item), std::stoi(xmldata_ptr->nexts["offset"][0]->nexts["y"][0]->item) };
+			cInit_ptr->image_alpha = std::stoi(xmldata_ptr->nexts["image_alpha"][0]->item);
+			cInit_ptr->image_layer = std::stoi(xmldata_ptr->nexts["image_layer"][0]->item);
+
+			return cInit_ptr;
+		}
 		
 	public:
 		static  const char* get_component_name() { return "Image"; };

@@ -10,6 +10,10 @@
 #include "image_root.h"
 #include "animation_root.h"
 
+#include "xml_data.h"
+
+#include "function_map.h"
+
 namespace component
 {
 
@@ -44,11 +48,22 @@ namespace component
 
 	public:
 		struct ComponentInitializer : public CAT_ImageRoot::ComponentInitializer {
-			const char* xml_file;
+			XMLData* data_name;
 			Eigen::Vector2i offset = Vector2i{ 0,0 };
 			Uint8 image_alpha = 255;
 			unsigned short image_layer = 0;
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+
+			cInit_ptr->data_name = funcMap_ptr->use_char_func(xmldata_ptr->nexts["data_name"][0]->item);
+			cInit_ptr->offset = Vector2i{ std::stoi(xmldata_ptr->nexts["offset"][0]->nexts["x"][0]->item), std::stoi(xmldata_ptr->nexts["offset"][0]->nexts["y"][0]->item) };
+			cInit_ptr->image_alpha = std::stoi(xmldata_ptr->nexts["image_alpha"][0]->item);
+			cInit_ptr->image_layer = std::stoi(xmldata_ptr->nexts["image_layer"][0]->item);
+
+			return cInit_ptr;
+		}
 		
 
 	public:

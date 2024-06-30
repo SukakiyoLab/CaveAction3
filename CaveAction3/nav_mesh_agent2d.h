@@ -6,6 +6,7 @@
 
 #include "component.h"
 
+
 namespace component {
 
 	class CAT_NavMeshAgent2D : public CAT_Component {
@@ -27,9 +28,17 @@ namespace component {
 
 	public:
 		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
-			std::string target_transform_name;
+			std::string target_object_name;
 			unsigned short target_transform_id;
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			cInit_ptr->target_object_name = xmldata_ptr->nexts["target_object_name"][0]->item;
+			cInit_ptr->target_transform_id = std::stoi(xmldata_ptr->nexts["target_transform_id"][0]->item);
+
+			return cInit_ptr;
+		}
 
 	public:
 		CAT_NavMeshAgent2D(CAT_Transform* init_self, CAT_Transform* init_target, NavMeshSystem2D* init_nmsys_ptr);

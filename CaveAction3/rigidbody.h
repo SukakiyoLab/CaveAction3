@@ -24,6 +24,9 @@
 
 #include "component.h"
 
+#include "xml_data.h"
+#include "function_map.h"
+
 
 using namespace Eigen;
 //using namespace std;
@@ -54,6 +57,9 @@ namespace component
 		CAT_Transform* m_transform;
 
 		float static_friction_magnitude = DEFAULT_STATIC_MAGNITUDE;
+		int m_delta_time = 0;
+
+		Vector3d pre_pos = Eigen::Vector3d::Zero();
 
 	public:
 		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
@@ -63,13 +69,34 @@ namespace component
 			Vector3d virtual_normal_force = Vector3d(DEFAULT_NORMAL_X, DEFAULT_NORMAL_Y, DEFAULT_NORMAL_Z);
 		};
 
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			std::string type = xmldata_ptr->nexts["type"][0]->item;
+			if (type == "Newton") {
+				cInit_ptr->type = Type::Newton;
+			}
+			else {
+				cInit_ptr->type = Type::Aristoteles;
+			}
+			cInit_ptr->mass = std::stof(xmldata_ptr->nexts["mass"][0]->item);
+			cInit_ptr->coefficient = std::stof(xmldata_ptr->nexts["coefficient"][0]->item);
+			cInit_ptr->virtual_normal_force = Eigen::Vector3d(std::stod(xmldata_ptr->nexts["virtual_normal_force"][0]->nexts["x"][0]->item),
+				std::stod(xmldata_ptr->nexts["virtual_normal_force"][0]->nexts["y"][0]->item),
+				std::stod(xmldata_ptr->nexts["virtual_normal_force"][0]->nexts["z"][0]->item));
+
+			return cInit_ptr;
+		}
+
 	public:
 
 		CAT_Rigidbody(CAT_Transform* const transform, ComponentInitializer* cInit);
-		void gain(int delta_time) override;		// 速度、加速度を計算し、物体の位置を更新する//
+		void gain(int delta_time) override;		/* 経過時間を取得 */
+		void update() override; // 速度、加速度を計算し、物体の位置を更新する//
 		int addForce(const Vector3d force); // 物体にかかる力を保存する//
 		Vector3d get_velocity() {return this->m_velocity;}
-		void reset(); // 物体の速度を0にする//
+		float get_mass() { return this->mass; }
+		Vector3d get_sum_force() { return this->m_sum_force; }
+		void reset_generator(); // 物体の速度を0にする//
 		int set_velocity(const Vector3d velocity);
 		Type get_type();
 	};

@@ -17,14 +17,14 @@ void NavMeshSystem2D::add_rect(CAT_NMRect nmrect) {
 int NavMeshSystem2D::height_to_key(int height) {
 
 	for (auto it = nmrect_map.begin(); it != nmrect_map.end(); it++) {
-		if (mins[it->first] <= height && height <= maxs[it->first]) {
+		if (mins[it->first]-1 <= height && height <= maxs[it->first]+1) {
 			//debug::debugLog("%d %d\n", mins[it->first], maxs[it->first]);
 			return it->first;
 		}
 	}
 }
 
-NavMeshSystem2D::NavMeshSystem2D(const char* rect_data, std::vector<std::vector<unsigned short>> bake_data, Eigen::Vector2i offset) {
+NavMeshSystem2D::NavMeshSystem2D(XMLData* rect_data, std::vector<std::vector<unsigned short>>* bake_data, Eigen::Vector2i offset) {
 	std::vector<CAT_NMRect> rects = XMLLoader::NMRectLoad(rect_data, offset);
 
 	for (int i = 0; i < rects.size(); i++) {
@@ -42,8 +42,8 @@ NavMeshSystem2D::NavMeshSystem2D(const char* rect_data, std::vector<std::vector<
 
 	
 
-	for (int i = 0; i < bake_data.size(); i++) {
-		std::vector<unsigned short> row_table = bake_data[i];
+	for (int i = 0; i < bake_data->size(); i++) {
+		std::vector<unsigned short> row_table = (*bake_data)[i];
 		this->id_map[{row_table[0], row_table[1]}] = { row_table[2], row_table[3] };
 	}
 
@@ -71,14 +71,15 @@ unsigned short NavMeshSystem2D::get_id(Eigen::Vector2i center_ptr) {
 	for (int i = 0; i < vec_ptr->size(); i++) {
 		CAT_NMRect* rect_ptr = (*vec_ptr)[i];
 
-		if (rect_ptr->left <= center_ptr[0] && center_ptr[0] <= rect_ptr->right) {
+		if (rect_ptr->left - NAVMESH_OFFSET <= center_ptr[0] && center_ptr[0] <= rect_ptr->right + NAVMESH_OFFSET) {
 			return rect_ptr->id;
 		}
+		debug::debugLog("Error : Failed to get NMRect ID!\n");
 	}
 
-	//debug::debugLog("Error : Failed to get NMRect ID!\n");
-	//debug::debugLog("%d %d\n", center_ptr[0],height_to_key(center_ptr[1]));
-	//debug::debugLog("%d %d\n", mins[height_to_key(center_ptr[1])], maxs[height_to_key(center_ptr[1])]);
+	
+	debug::debugLog("%d %d\n", center_ptr[0],height_to_key(center_ptr[1]));
+	debug::debugLog("%d %d\n", mins[height_to_key(center_ptr[1])], maxs[height_to_key(center_ptr[1])]);
 	return 255;
 
 

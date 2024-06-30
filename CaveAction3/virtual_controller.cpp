@@ -76,11 +76,14 @@ namespace component {
 		
 		if (m_rigidbody->get_type() == CAT_Rigidbody::Newton) {
 
-			this->m_virtual_input = Vector3d(
+			/*this->m_virtual_input = Vector3d(
 				update_element(this->m_real_input[0], this->m_virtual_input[0], delta_time),
 				update_element(this->m_real_input[1], this->m_virtual_input[1], delta_time),
 				update_element(this->m_real_input[2], this->m_virtual_input[2], delta_time)
-			);
+			);*/
+
+			this->m_virtual_input = this->m_real_input;
+
 			/*debug::debugLog("new vector: x: %f, y: %f, z: %f\n", this->m_virtual_input[0],
 				this->m_virtual_input[1],
 				this->m_virtual_input[2]);*/

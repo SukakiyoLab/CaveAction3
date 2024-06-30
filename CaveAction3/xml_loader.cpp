@@ -4,18 +4,18 @@
 
 namespace XMLLoader {
 
-	void AnimLoader::Load(const char* xml_file) {
+	void AnimLoader::Load(XMLData* data_name) {
 
-        pugi::xml_document doc;
+        //pugi::xml_document doc;
 
-        pugi::xml_parse_result result = doc.load_string(xml_file);
+        //pugi::xml_parse_result result = doc.load_string(xml_file);
 
-        for (auto point : doc.child("data").children("animation")) {
+        for (auto point : data_name->nexts["animation"]) {
             Animation animation;
-            for (auto val : point.children("frame")) {
+            for (auto val : point->nexts["frame"]) {
                 
-                animation.filenames.push_back(std::string(reinterpret_cast<const char*>(val.child_value("filename"))));
-                animation.durations.push_back(strtof(reinterpret_cast<const char*>(val.child_value("duration")), nullptr));
+                animation.filenames.push_back(val->nexts["filename"][0]->item);
+                animation.durations.push_back(std::stoi(val->nexts["duration"][0]->item));
 
                 
             }
@@ -27,23 +27,23 @@ namespace XMLLoader {
 	}
 
 
-    std::vector<CAT_NMRect> NMRectLoad(const char* rect_data, Eigen::Vector2i offset) {
-        pugi::xml_document doc;
+    std::vector<CAT_NMRect> NMRectLoad(XMLData* rect_data, Eigen::Vector2i offset) {
+        //pugi::xml_document doc;
 
-        pugi::xml_parse_result result = doc.load_string(rect_data);
+        //pugi::xml_parse_result result = doc.load_string(rect_data);
 
         std::vector<CAT_NMRect> rect_list;
 
-        for (auto rect : doc.child("root").children("rect")) {
+        for (auto rect : rect_data->nexts["rect"]) {
             CAT_NMRect nmrect;
 
-            nmrect.id = std::stoi(std::string(reinterpret_cast<const char*>(rect.child_value("id"))));
+            nmrect.id = std::stoi(rect->nexts["id"][0]->item);
             
 
-            int x = std::stoi(std::string(reinterpret_cast<const char*>(rect.child_value("x")))) + offset[0];
-            int y = std::stoi(std::string(reinterpret_cast<const char*>(rect.child_value("y")))) + offset[1];
-            int width = std::stoi(std::string(reinterpret_cast<const char*>(rect.child_value("width"))));
-            int height = std::stoi(std::string(reinterpret_cast<const char*>(rect.child_value("height"))));
+            int x = std::stoi(rect->nexts["x"][0]->item) + offset[0];
+            int y = std::stoi(rect->nexts["y"][0]->item) + offset[1];
+            int width = std::stoi(rect->nexts["width"][0]->item);
+            int height = std::stoi(rect->nexts["height"][0]->item);
 
             nmrect.top = y - height;
             nmrect.bottom = y + height;

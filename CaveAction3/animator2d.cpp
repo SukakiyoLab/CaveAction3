@@ -5,10 +5,10 @@ namespace component {
 	CAT_Animator2D::CAT_Animator2D(CAT_AnimationRoot* const anim_root, CAT_Animator2D::ComponentInitializer* cInit) {
 		this->animation_root = anim_root;
 
-		for (int i = 0; i < cInit->animation_sets.size(); i++) {
-			this->save(std::get<0>(cInit->animation_sets[i]),
-				std::get<1>(cInit->animation_sets[i]),
-				std::get<2>(cInit->animation_sets[i]));
+		for (int i = 0; i < cInit->animation_sets->size(); i++) {
+			this->save_generate_object((*cInit->animation_sets)[i][0],
+				(*cInit->animation_sets)[i][1],
+				(*cInit->animation_sets)[i][2]);
 		}
 	}
 
@@ -33,7 +33,7 @@ namespace component {
 		return vector_key;
 	}
 
-	void CAT_Animator2D::save(unsigned short index, unsigned short direction_key, unsigned short animation_id) {
+	void CAT_Animator2D::save_generate_object(unsigned short index, unsigned short direction_key, unsigned short animation_id) {
 		if (direction_key < DIRECTION_MAX) {
 			//unsigned short direction_key = this->vector2i_to_key(direction);
 			

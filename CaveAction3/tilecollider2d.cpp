@@ -10,6 +10,11 @@
 
 #include <cmath>
 
+#define VELOCITY_COF (70)
+
+#define POSITION_COF (150)
+#define FORCE_COF (-1)
+
 namespace component
 {
 
@@ -24,13 +29,13 @@ namespace component
 
 
         //std::vector<std::vector<unsigned short>> csv_file = CSV_Load(std::string(file_name));
-        std::vector<std::vector<unsigned short>> csv_file = cInit->tilemap_collider_init;
+        std::vector<std::vector<unsigned short>>* csv_file = cInit->tilemap_collider_init;
 
 
-        int h_num = csv_file.size() + 2;
+        int h_num = csv_file->size() + 2;
         int w_num = 0;
         if(h_num > 2){
-            w_num = csv_file.at(0).size() + 2;
+            w_num = csv_file->at(0).size() + 2;
         }
 
         std::vector<unsigned short> field(w_num * h_num);
@@ -39,7 +44,7 @@ namespace component
 
         for(int i = 1; i < h_num - 1; i++){
             for(int j = 1; j < w_num - 1; j++){
-                field[i * w_num + j] = csv_file[i-1][j-1];
+                field[i * w_num + j] = (*csv_file)[i-1][j-1];
             }
         }
 
@@ -189,7 +194,7 @@ namespace component
                     type = 1;
                 }
 
-                Eigen::Vector3d own_pos = this->m_transform->get_position();
+                Eigen::Vector2d own_pos = Eigen::Vector2d((double)this->m_transform->get_position()[0],(double)this->m_transform->get_position()[1]) + this->m_offset.cast<double>();
                 Eigen::Vector2d edge1(line.first->first * 32 + 16 + own_pos[0], line.first->second * 32 + 16 + own_pos[1]);
                 Eigen::Vector2d edge2(line.second->first * 32 + 16 + own_pos[0], line.second->second * 32 + 16 + own_pos[1]);
                 CAT_BoxCollider2D::Range range = box_col->get_range();
@@ -228,8 +233,14 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 400 * abs(collider->get_velocity()[0]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d ;
+                                vec = VELOCITY_COF * abs(collider->get_velocity()[0]) * dist_vec_3d.normalized();
+                                vec += FORCE_COF * collider->get_sum_force();
                             }
+                            if (dist_vec_3d.dot(collider->get_sum_force()) < -0.1) {
+                                
+                            }
+                            
+                            vec += POSITION_COF * dist_vec_3d;
                             
                             
 
@@ -276,8 +287,13 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
+                                vec = VELOCITY_COF * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized();
+                                vec += FORCE_COF * collider->get_sum_force();
                             }
+                            if (dist_vec_3d.dot(collider->get_sum_force()) < -0.1) {
+                                
+                            }
+                            vec += POSITION_COF * dist_vec_3d;
 
                             if(collider->get_collision() > 0){
                                 force += vec;
@@ -322,8 +338,13 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
+                                vec = VELOCITY_COF * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized();
+                                vec += FORCE_COF * collider->get_sum_force();
                             }
+                            if (dist_vec_3d.dot(collider->get_sum_force()) < -0.1) {
+                                
+                            }
+                            vec += POSITION_COF * dist_vec_3d;
 
                             if (collider->get_collision() > 0) {
                                 force += vec;
@@ -359,8 +380,13 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 400 * abs(collider->get_velocity()[1]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
+                                vec = VELOCITY_COF * abs(collider->get_velocity()[1]) * dist_vec_3d.normalized();
+                                vec += FORCE_COF * collider->get_sum_force();
                             }
+                            if (dist_vec_3d.dot(collider->get_sum_force()) < -0.1) {
+                                
+                            }
+                            vec += POSITION_COF * dist_vec_3d;
 
                             if(collider->get_collision() > 0){
                                 force += vec;
@@ -404,8 +430,13 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
+                                vec = VELOCITY_COF * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized();
+                                vec += FORCE_COF * collider->get_sum_force();
                             }
+                            if (dist_vec_3d.dot(collider->get_sum_force()) < -0.1) {
+                                
+                            }
+                            vec += POSITION_COF * dist_vec_3d;
 
                             if (collider->get_collision() > 0) {
                                 force += vec;
@@ -451,8 +482,13 @@ namespace component
 
                             Vector3d dist_vec_3d = Vector3d(dist_vec[0], dist_vec[1], 0);
                             if (dist_vec_3d.dot(collider->get_velocity()) < 0) {
-                                vec = 400 * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized() + 1000 * dist_vec_3d;
+                                vec = VELOCITY_COF * abs(collider->get_velocity()[key]) * dist_vec_3d.normalized();
+                                vec += FORCE_COF * collider->get_sum_force();
                             }
+                            if (dist_vec_3d.dot(collider->get_sum_force()) < -0.1) {
+                                
+                            }
+                            vec += POSITION_COF * dist_vec_3d;
 
                             if (collider->get_collision() > 0) {
                                 force += vec;
@@ -468,9 +504,11 @@ namespace component
 
 
             if (collider->get_collision() > 0) {
-                if (force_num != 0) {
-                    collider->add_force(force / force_num);
+                /*if (force_num != 0) {
+                    collider->add_force(force);
                 }
+                */
+                if (result > 0) collider->reset_generator();
             }
 
         }

@@ -8,6 +8,9 @@
 
 #include <string>
 
+#include "xml_data.h"
+#include "function_map.h"
+
 namespace component {
 
 	class CAT_ViewCamera : public CAT_Component{
@@ -32,9 +35,22 @@ namespace component {
 			Eigen::Vector3d view_port_center = Eigen::Vector3d(DEFAULT_VIEWPORT_WIDTH / 2, DEFAULT_VIEWPORT_HEIGHT / 2, 0);
 			unsigned int width = DEFAULT_VIEWPORT_WIDTH * 1.5;
 			unsigned int height = DEFAULT_VIEWPORT_HEIGHT * 1.5;
-			std::string other_transform_name;
+			std::string other_object_name;
 			unsigned short other_transform_id = 0;
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			cInit_ptr->view_port_center = Eigen::Vector3d(std::stod(xmldata_ptr->nexts["view_port_center"][0]->nexts["x"][0]->item),
+				std::stod(xmldata_ptr->nexts["view_port_center"][0]->nexts["y"][0]->item),
+				std::stod(xmldata_ptr->nexts["view_port_center"][0]->nexts["z"][0]->item));
+			cInit_ptr->width = std::stoi(xmldata_ptr->nexts["width"][0]->item);
+			cInit_ptr->height = std::stoi(xmldata_ptr->nexts["height"][0]->item);
+			cInit_ptr->other_object_name = xmldata_ptr->nexts["other_object_name"][0]->item;
+			cInit_ptr->other_transform_id = std::stoi(xmldata_ptr->nexts["other_transform_id"][0]->item);
+
+			return cInit_ptr;
+		}
 
 	private:
 		CAT_ViewPort m_view_port;

@@ -11,6 +11,9 @@
 
 #include "component.h"
 
+#include "xml_data.h"
+#include "function_map.h"
+
 #define DIRECTION_MAX (4)
 
 namespace component {
@@ -32,12 +35,21 @@ namespace component {
 		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
 			unsigned short anim_root_id = 0;
 			std::string anim_type = "CAT_AnimationImage";
-			std::vector<std::tuple<unsigned short, unsigned short, unsigned short>> animation_sets;
+			std::vector<std::vector<unsigned short>>* animation_sets; /*FuncMap‚ðŽg—p*/
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			cInit_ptr->anim_root_id = std::stoi(xmldata_ptr->nexts["anim_root_id"][0]->item);
+			cInit_ptr->anim_type = xmldata_ptr->nexts["anim_type"][0]->item;
+			cInit_ptr->animation_sets = funcMap_ptr->use_value_func(xmldata_ptr->nexts["animation_sets"][0]->item);
+
+			return cInit_ptr;
+		}
 
 	public:
 		CAT_Animator2D(CAT_AnimationRoot* const anim_root, ComponentInitializer* cInit);
-		void save(unsigned short index, unsigned short direction, unsigned short animation_id);
+		void save_generate_object(unsigned short index, unsigned short direction, unsigned short animation_id);
 		void change_animation(unsigned short index, Eigen::Vector2i* direction);
 	};
 }

@@ -30,15 +30,12 @@
 
 #include "GameObject.h"
 
-#include "CameraObject.h"
-#include "AnimationEntity2D.h"
-#include "Player2D.h"
-
-#include "Slime2D.h"
-
-#include "TilemapObject.h"
-
 #include "NavMeshEntity.h"
+
+#include "function_map.h"
+
+#include "object_manager.h"
+#include "object_generator.h"
 
 using namespace component;
 
@@ -51,7 +48,10 @@ private:
     ColliderManager* m_collider_manager;
 
     NavMeshSystem2D* m_nav_mesh_sys;
+    FunctionMap* functionMap;
     
+    game_system_1::ObjectManager* object_manager;
+    game_system_3::ObjectGenerator* object_generator;
 
     int count = 0;
 	int quit = 0;

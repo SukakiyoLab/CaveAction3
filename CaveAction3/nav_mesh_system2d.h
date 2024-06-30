@@ -11,6 +11,9 @@
 
 #include "xml_loader.h"
 
+#define NAVMESH_OFFSET (16)
+
+
 class NavMeshSystem2D {
 private:
 	std::map<int, std::vector<CAT_NMRect*>> nmrect_map;
@@ -31,7 +34,7 @@ private:
 
 public:
 
-	NavMeshSystem2D(const char* rect_data, std::vector<std::vector<unsigned short>> bake_data, Eigen::Vector2i offset);
+	NavMeshSystem2D(XMLData* rect_data, std::vector<std::vector<unsigned short>>* bake_data, Eigen::Vector2i offset);
 	~NavMeshSystem2D();
 
 	CAT_NMRect* get_rect(unsigned short id);

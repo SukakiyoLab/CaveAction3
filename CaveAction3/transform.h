@@ -9,6 +9,9 @@
 
 #include "component.h"
 
+#include "xml_data.h"
+#include "function_map.h"
+
 using namespace Eigen;
 
 namespace component {
@@ -25,6 +28,22 @@ namespace component {
 			Vector3d rotation = Eigen::Vector3d(0, 0, 0);
 			Vector3d scale = Eigen::Vector3d(1, 1, 1);
 		};
+
+		static ComponentInitializer* create_initializer(XMLData* xmldata_ptr, FunctionMap* funcMap_ptr) {
+			ComponentInitializer* cInit_ptr = new ComponentInitializer;
+			cInit_ptr->position = Eigen::Vector3d(std::stod(xmldata_ptr->nexts["position"][0]->nexts["x"][0]->item),
+				std::stod(xmldata_ptr->nexts["position"][0]->nexts["y"][0]->item),
+				std::stod(xmldata_ptr->nexts["position"][0]->nexts["z"][0]->item));
+			cInit_ptr->rotation = Eigen::Vector3d(std::stod(xmldata_ptr->nexts["rotation"][0]->nexts["x"][0]->item),
+				std::stod(xmldata_ptr->nexts["rotation"][0]->nexts["y"][0]->item),
+				std::stod(xmldata_ptr->nexts["rotation"][0]->nexts["z"][0]->item));
+			cInit_ptr->scale = Eigen::Vector3d(std::stod(xmldata_ptr->nexts["scale"][0]->nexts["x"][0]->item),
+				std::stod(xmldata_ptr->nexts["scale"][0]->nexts["y"][0]->item),
+				std::stod(xmldata_ptr->nexts["scale"][0]->nexts["z"][0]->item));
+
+			return cInit_ptr;
+		}
+
 
 	public:
 		CAT_Transform(ComponentInitializer* cInit);
