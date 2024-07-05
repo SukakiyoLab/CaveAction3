@@ -1,6 +1,8 @@
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_curve.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\animation_curve.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\animation_image.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_root.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\animation_root.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animator2d.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\animator2d.obj
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\ball_controller.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\ball_controller.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\boxcollider2d.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\boxcollider2d.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\character_controller.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\character_controller.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\collider2d.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\collider2d.obj
@@ -16,6 +18,7 @@ C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\main.cpp;C:\Users\Sukakiy
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\NavMeshEntity.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\NavMeshEntity.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\nav_mesh_agent2d.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\nav_mesh_agent2d.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\nav_mesh_system2d.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\nav_mesh_system2d.obj
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\object_manager.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\object_manager.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\player_controller.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\player_controller.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image_root.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\image_root.obj
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.cpp;C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\x64\Release\rigidbody.obj

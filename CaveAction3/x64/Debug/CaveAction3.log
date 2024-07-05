@@ -1,35 +1,23 @@
-﻿  main.cpp
+﻿  ball_controller.cpp
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
+  
 C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
   
 C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
   
 C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
-  
-C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image_storage.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
   
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(36,48): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
   
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(37,50): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
   
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
-  
-C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(32,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
-  
-C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
-  
-C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
-  
-C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'main.cpp' をコンパイルしています)
+  (ソース ファイル 'ball_controller.cpp' をコンパイルしています)
   
   CaveAction3.vcxproj -> C:\Users\Sukakiyo\source\repos\CaveAction3\x64\Debug\CaveAction3.exe

@@ -159,6 +159,12 @@
     <ClInclude Include="pointer_wrapper.h">
       <Filter>ヘッダー ファイル\GameSystem\GameSystem3</Filter>
     </ClInclude>
+    <ClInclude Include="animation_curve.h">
+      <Filter>ヘッダー ファイル\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ball_controller.h">
+      <Filter>ヘッダー ファイル\ComponentOriginal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -248,8 +254,14 @@
     <ClCompile Include="xml_loader.cpp">
       <Filter>ソース ファイル\GameSystem\GameSystem3</Filter>
     </ClCompile>
+    <ClCompile Include="animation_curve.cpp">
+      <Filter>ソース ファイル\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ball_controller.cpp">
+      <Filter>ソース ファイル\ComponentOriginal</Filter>
+    </ClCompile>
     <ClCompile Include="object_manager.cpp">
-      <Filter>ソース ファイル\GameSystem\GameSystem3</Filter>
+      <Filter>ソース ファイル\GameSystem\GameSystem1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

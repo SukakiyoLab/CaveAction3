@@ -16,10 +16,15 @@
 
 #include "nav_mesh_system2d.h"
 
+#include "object_generator.h"
+
+#include "function_map.h"
+
 #include <string>
 #include <map>
 
 #include "animation_image.h"
+#include "animation_curve.h"
 #include "animation_root.h"
 #include "animator2d.h"
 #include "boxcollider2d.h"
@@ -32,6 +37,8 @@
 #include "tilemap.h"
 #include "view_camera.h"
 #include "virtual_controller.h"
+
+#include "ball_controller.h"
 
 #include "character_controller.h"
 #include "player_controller.h"
@@ -75,6 +82,8 @@ namespace object {
 			ColliderManager* collider_manager_ptr;
 			SDL_Renderer* renderer_ptr;
 			NavMeshSystem2D* nav_mesh_system_ptr;
+			game_system_3::ObjectGenerator* generator_ptr;
+			FunctionMap* function_map_ptr;
 
 			std::map<std::string, std::vector<component::CAT_Component*>> other_obj_components;
 
@@ -114,6 +123,11 @@ namespace object {
 
 				for (XMLData* child_ptr : root_component_ptr->nexts["animation_image"]) {
 					component::CAT_Component::ComponentInitializer* com_ptr = component::CAT_AnimationImage::create_initializer(child_ptr, funcMap_ptr);
+					objInit_ptr->selfComponentInits.push_back(com_ptr);
+				}
+
+				for (XMLData* child_ptr : root_component_ptr->nexts["animation_curve"]) {
+					component::CAT_Component::ComponentInitializer* com_ptr = component::CAT_AnimationCurve::create_initializer(child_ptr, funcMap_ptr);
 					objInit_ptr->selfComponentInits.push_back(com_ptr);
 				}
 
@@ -160,6 +174,11 @@ namespace object {
 					objInit_ptr->selfComponentInits.push_back(com_ptr);
 				}
 
+
+				for (XMLData* child_ptr : root_component_ptr->nexts["ball_controller"]) {
+					component::CAT_Component::ComponentInitializer* com_ptr = component::CAT_BallController::create_initializer(child_ptr, funcMap_ptr);
+					objInit_ptr->selfComponentInits.push_back(com_ptr);
+				}
 
 
 				for (XMLData* child_ptr : root_component_ptr->nexts["player_controller"]) {

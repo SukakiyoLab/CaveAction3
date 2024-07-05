@@ -48,7 +48,8 @@ namespace component
 
 	private:
 		Type type;
-		Vector3d m_velocity = Vector3d::Zero();			 // 速度 //
+		Vector3d m_velocity = Vector3d::Zero();
+		double m_speed = -1; // 速度 //
 		Vector3d m_acceleration = Vector3d::Zero();		 // 加速度 //
 		float mass;						 // 質量 //
 		Vector3d m_sum_force = Vector3d::Zero();			 // 力の総和 //
@@ -93,11 +94,19 @@ namespace component
 		void gain(int delta_time) override;		/* 経過時間を取得 */
 		void update() override; // 速度、加速度を計算し、物体の位置を更新する//
 		int addForce(const Vector3d force); // 物体にかかる力を保存する//
-		Vector3d get_velocity() {return this->m_velocity;}
-		float get_mass() { return this->mass; }
-		Vector3d get_sum_force() { return this->m_sum_force; }
+		inline Vector3d get_velocity() {return this->m_velocity;}
+		inline float get_mass() { return this->mass; }
+		inline Vector3d get_sum_force() { return this->m_sum_force; }
 		void reset_generator(); // 物体の速度を0にする//
 		int set_velocity(const Vector3d velocity);
 		Type get_type();
+		
+		inline void set_speed(double new_speed) { if (this->type == Type::Aristoteles) this->m_speed = new_speed; };
+
+
+		/* Address Getter */
+		inline double* get_speed_ptr() { return &(this->m_speed); };
+		
+
 	};
 }

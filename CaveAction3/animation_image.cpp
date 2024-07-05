@@ -102,7 +102,7 @@ namespace component
 						  this->states[state_id].m_textures[num],
 						  &(this->states[state_id].m_image_rects[num]),
 						  &(this->m_draw_rect),
-						  0,
+						  this->m_transform->get_rotation()[2],
 						  NULL,
 						  SDL_FLIP_NONE);
 	}

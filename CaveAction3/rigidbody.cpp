@@ -29,6 +29,8 @@ namespace component {
 		next_pos = (next_pos).array().round().matrix();
 		this->m_transform->set_position(next_pos);
 
+		debug::print("velocity", this->m_velocity);
+		debug::debugLog("[speed] : %f\n", this->m_speed);
 
 		// 速度を計算//
 		if (type == Newton) {
@@ -98,6 +100,9 @@ namespace component {
 
 		if (type == Aristoteles) {
 			this->m_velocity = velocity;
+			if (this->m_speed > 0) {
+				this->m_velocity = (this->m_velocity / this->m_velocity.norm()) * this->m_speed;
+			}
 			return 0;
 		}
 		else {

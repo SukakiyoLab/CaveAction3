@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animation_curve.h" />
     <ClInclude Include="animation_root.h" />
     <ClInclude Include="animator2d.h" />
     <ClInclude Include="animation_image.h" />
+    <ClInclude Include="ball_controller.h" />
     <ClInclude Include="boxcollider2d.h" />
     <ClInclude Include="character_controller.h" />
     <ClInclude Include="component.h" />
@@ -53,9 +55,11 @@
     <ClInclude Include="xml_loader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="animation_curve.cpp" />
     <ClCompile Include="animation_image.cpp" />
     <ClCompile Include="animation_root.cpp" />
     <ClCompile Include="animator2d.cpp" />
+    <ClCompile Include="ball_controller.cpp" />
     <ClCompile Include="boxcollider2d.cpp" />
     <ClCompile Include="character_controller.cpp" />
     <ClCompile Include="collider2d.cpp" />

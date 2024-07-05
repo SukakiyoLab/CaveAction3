@@ -11,16 +11,29 @@
 #include "xml_data.h"
 #include "function_map.h"
 
+#include "object_generator.h"
+
+
+#define OFFSET (32)
+
 
 namespace component {
 
 	class CAT_PlayerController : public CAT_CharacterController {
 	private:
+		CAT_Transform* transform_ptr;
+		game_system_3::ObjectGenerator* generator_ptr;
+		FunctionMap* func_map_ptr;
 		CAT_Input* m_input = nullptr;
+
+		XMLData* ballData = nullptr;
+		XMLData* ballPositionData = nullptr;
+		XMLData* ballDirectionData = nullptr;
 
 		enum PlayerState {
 			Move,
-			Attack
+			Attack,
+			Magic
 		};
 
 		PlayerState state = PlayerState::Move;
@@ -42,7 +55,14 @@ namespace component {
 
 
 	public:
-		CAT_PlayerController(CAT_Rigidbody*const new_rigidbody,CAT_VirtualController*const new_v_controller,CAT_Animator2D*const new_animator2D, ComponentInitializer* cInit);
+		CAT_PlayerController(
+			CAT_Transform*const new_transform,
+			CAT_Rigidbody*const new_rigidbody,
+			CAT_VirtualController*const new_v_controller,
+			CAT_Animator2D*const new_animator2D,
+			game_system_3::ObjectGenerator* generator_ptr,
+			FunctionMap* func_map_ptr,
+			ComponentInitializer* cInit);
 		void set_input(CAT_Input* const new_input);
 		void update() override;
 	

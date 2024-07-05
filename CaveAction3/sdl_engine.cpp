@@ -150,7 +150,14 @@ int CAT_SDLEngine::InitObject()
     object_generator->save_generate_object(functionMap->use_char_func("rock_object_data"));
     object_generator->save_generate_object(functionMap->use_char_func("player_object_data"));
     object_generator->save_generate_object(functionMap->use_char_func("slime_object_data"));
+#ifdef _DEBUG
     object_generator->save_generate_object(functionMap->use_char_func("camera_object_debug_data"));
+#else
+    object_generator->save_generate_object(functionMap->use_char_func("camera_object_release_data"));
+#endif
+    XMLData* fireball_data = functionMap->use_char_func("fireball_object_data");
+    fireball_data->nexts["transform"][0]->nexts["rotation"][0]->nexts["z"][0]->item = "90";
+    object_generator->save_generate_object(fireball_data);
 
     object_generator->save_delete_object("rock"); /* Šâ‚Ìíœ */
 

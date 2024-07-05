@@ -41,6 +41,16 @@ namespace object {
 				continue;
 			}
 
+			component::CAT_AnimationCurve::ComponentInitializer* animationCurve_ptr = dynamic_cast<component::CAT_AnimationCurve::ComponentInitializer*>(componentInit_ptr);
+			if (animationCurve_ptr != nullptr) {
+				component_ptr = new component::CAT_AnimationCurve(animationCurve_ptr);
+				self_components_map[get_component_name<component::CAT_AnimationCurve>()].push_back(component_ptr);
+				self_components_vector.push_back(component_ptr);
+
+				continue;
+			}
+
+
 			component::CAT_Animator2D::ComponentInitializer* animator2DInit_ptr = dynamic_cast<component::CAT_Animator2D::ComponentInitializer*>(componentInit_ptr);
 			if (animator2DInit_ptr != nullptr) {
 				auto anim_root_compo_vector = &(self_components_map[animator2DInit_ptr->anim_type]);
@@ -220,6 +230,38 @@ namespace object {
 				continue;
 			}
 
+			/* オリジナル・コンポーネント */
+
+			component::CAT_BallController::ComponentInitializer* ballControllerInit_ptr = dynamic_cast<component::CAT_BallController::ComponentInitializer*>(componentInit_ptr);
+			if (ballControllerInit_ptr != nullptr) {
+				auto anim_image_compo_vector = &(self_components_map[get_component_name<component::CAT_AnimationImage>()]);
+				if (ballControllerInit_ptr->animation_image_id >= anim_image_compo_vector->size()) {
+					error_id = true;
+				}
+
+				auto rigidbody_compo_vector = &(self_components_map[get_component_name<component::CAT_Rigidbody>()]);
+				if (ballControllerInit_ptr->rigidbody_id >= rigidbody_compo_vector->size()) {
+					error_id = true;
+				}
+				auto anim_curve_compo_vector = &(self_components_map[get_component_name<component::CAT_AnimationCurve>()]);
+				if (ballControllerInit_ptr->animation_curve_id >= anim_curve_compo_vector->size()) {
+					error_id = true;
+				}
+
+				component_ptr = new component::CAT_BallController(
+					this->transform,
+					dynamic_cast<component::CAT_AnimationImage*>((*anim_image_compo_vector)[ballControllerInit_ptr->animation_image_id]),
+					dynamic_cast<component::CAT_Rigidbody*>((*rigidbody_compo_vector)[ballControllerInit_ptr->rigidbody_id]),
+					dynamic_cast<component::CAT_AnimationCurve*>((*anim_curve_compo_vector)[ballControllerInit_ptr->animation_curve_id]),
+					ballControllerInit_ptr
+				);
+
+				self_components_map[get_component_name<component::CAT_BallController>()].push_back(component_ptr);
+				self_components_vector.push_back(component_ptr);
+
+				continue;
+			}
+
 			component::CAT_PlayerController::ComponentInitializer* playerControllerInit_ptr = dynamic_cast<component::CAT_PlayerController::ComponentInitializer*>(componentInit_ptr);
 			if (playerControllerInit_ptr != nullptr) {
 
@@ -237,9 +279,12 @@ namespace object {
 				}
 
 				component_ptr = new component::CAT_PlayerController(
+					this->transform,
 					dynamic_cast<component::CAT_Rigidbody*>((*rigidbody_compo_vector)[playerControllerInit_ptr->rigidbody_id]),
 					dynamic_cast<component::CAT_VirtualController*>((*vc_compo_vector)[playerControllerInit_ptr->virtual_controller_id]),
 					dynamic_cast<component::CAT_Animator2D*>((*animator_compo_vector)[playerControllerInit_ptr->animator2D_id]),
+					objectInit->generator_ptr,
+					objectInit->function_map_ptr,
 					playerControllerInit_ptr
 				);
 

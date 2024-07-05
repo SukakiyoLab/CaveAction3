@@ -77,6 +77,8 @@ namespace game_system_1 {
 		gameObjectInit->collider_manager_ptr = m_collider_manager_ptr;
 		gameObjectInit->renderer_ptr = m_renderer_ptr;
 		gameObjectInit->nav_mesh_system_ptr = m_nav_mesh_system_ptr;
+		gameObjectInit->generator_ptr = m_generator_ptr;
+		gameObjectInit->function_map_ptr = m_func_map;
 
 
 		for (XMLData* other_component_data_ptr : data_ptr->nexts["other_object_components"][0]->nexts["object"]) {
