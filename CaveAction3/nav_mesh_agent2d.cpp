@@ -22,7 +22,7 @@ namespace component {
 		this->current_id = this->nmsys_ptr->get_id(vector_3d_to_2i(this->self_transform_ptr->get_position()));
 		this->destination_id = this->nmsys_ptr->get_id(vector_3d_to_2i(this->target_transform_ptr->get_position()));
 
-		debug::debugLog("Current : %d Destination : %d\n", this->current_id, this->destination_id);
+		//debug::debugLog("Current : %d Destination : %d\n", this->current_id, this->destination_id);
 		
 		this->current_rect_ptr = this->nmsys_ptr->get_rect(this->current_id);
 		this->next_rect_ptr = this->nmsys_ptr->get_rect(this->nmsys_ptr->get_next_info(this->current_id, this->destination_id).first);

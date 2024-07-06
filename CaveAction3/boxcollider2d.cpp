@@ -32,6 +32,11 @@ namespace component
 
         range.offset = offset;
         range.center = Eigen::Vector2d(pos[0], pos[1]) + offset;
+
+        if (this->overlap > 0) {
+            
+        }
+        this->overlap = 0;
         
     }
 
@@ -45,7 +50,7 @@ namespace component
             Vector2d dist_vec = target_range.center - range.center;
             if(abs(dist_vec[0]) < (range.width + target_range.width) / 2 &&
                abs(dist_vec[1]) < (range.height + target_range.height) / 2){
-                debug::debugLog("Collider On\n");
+                //debug::debugLog("Collider On\n");
                 if(collider->get_collision() > 0){
                     Vector3d vec = Vector3d::Zero();
                     Vector3d relative_velocity = collider->get_velocity() - this->get_velocity();
@@ -55,12 +60,13 @@ namespace component
                     }
                     //collider->add_force(vec);
                 }
+                this->overlap = 1;
                 return 1;
             }
             
             
         }
-
+        this->m_rigidbody->set_pre_pos();
         return 0;
     }
 

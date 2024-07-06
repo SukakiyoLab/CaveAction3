@@ -12,7 +12,7 @@ namespace game_system_1 {
 	class ObjectManager {
 	private:
 		std::list<object::GameObject*> m_objects;
-		std::map<std::string, object::GameObject**> m_objects_map;
+		std::map<std::string, std::vector<object::GameObject**>> m_objects_map;
 
 		game_system_3::ObjectGenerator* m_generator_ptr;
 

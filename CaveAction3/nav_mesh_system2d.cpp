@@ -78,8 +78,8 @@ unsigned short NavMeshSystem2D::get_id(Eigen::Vector2i center_ptr) {
 	}
 
 	
-	debug::debugLog("%d %d\n", center_ptr[0],height_to_key(center_ptr[1]));
-	debug::debugLog("%d %d\n", mins[height_to_key(center_ptr[1])], maxs[height_to_key(center_ptr[1])]);
+	//debug::debugLog("%d %d\n", center_ptr[0],height_to_key(center_ptr[1]));
+	//debug::debugLog("%d %d\n", mins[height_to_key(center_ptr[1])], maxs[height_to_key(center_ptr[1])]);
 	return 255;
 
 

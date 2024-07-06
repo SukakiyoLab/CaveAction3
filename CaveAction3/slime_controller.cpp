@@ -18,7 +18,7 @@ namespace component {
         }*/
         this->nm_agent_ptr->calculate();
         
-        debug::debugLog("%d %d\n", this->nm_agent_ptr->get_id_pair().first, this->nm_agent_ptr->get_id_pair().second);
+        //debug::debugLog("%d %d\n", this->nm_agent_ptr->get_id_pair().first, this->nm_agent_ptr->get_id_pair().second);
         
 
         Vector3d double_direction = (this->nm_agent_ptr->get_direction()).normalized();

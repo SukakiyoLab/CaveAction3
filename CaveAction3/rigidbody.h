@@ -61,6 +61,7 @@ namespace component
 		int m_delta_time = 0;
 
 		Vector3d pre_pos = Eigen::Vector3d::Zero();
+		int pre_reset_time = 0;
 
 	public:
 		struct ComponentInitializer : public CAT_Component::ComponentInitializer {
@@ -100,6 +101,7 @@ namespace component
 		void reset_generator(); // 物体の速度を0にする//
 		int set_velocity(const Vector3d velocity);
 		Type get_type();
+		inline void set_pre_pos() { pre_pos = this->m_transform->get_position(); }
 		
 		inline void set_speed(double new_speed) { if (this->type == Type::Aristoteles) this->m_speed = new_speed; };
 

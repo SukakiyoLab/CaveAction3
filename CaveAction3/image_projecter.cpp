@@ -42,16 +42,17 @@ void ImageProjecter::project() {
 			if (*(this->image_table[i][j]) == nullptr) {
 				continue;
 			}
-
-			(*(this->image_table[i][j]))->project(this->m_viewcamera);	
+			else {
+				(*(this->image_table[i][j]))->project(this->m_viewcamera);
+			}
 		}
 	}
 }
 
 
 void ImageProjecter::cancel(std::string object_name) {
-	for (auto image_ptr : image_map[object_name]) {
-		image_ptr = nullptr;
+	for (auto item_ptr = image_map[object_name].begin(); item_ptr != image_map[object_name].end(); item_ptr++) {
+		*item_ptr = nullptr;
 	}
 }
 

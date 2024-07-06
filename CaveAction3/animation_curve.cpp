@@ -39,7 +39,7 @@ namespace component {
 		
 
 		for (int i = 0; i < points.size(); i++) {
-			debug::debugLog("Point : %f\n", points[i]);
+			//debug::debugLog("Point : %f\n", points[i]);
 			Gt += points[i] * bernstein(n, i, t);
 		}
 
@@ -66,7 +66,7 @@ namespace component {
 			
 			for (int j = 0; j < this->key_points[i + 1].first / 10; j++) {
 				this->frame_data[j * 10] = bezierCurve(points, time_part * j);
-				debug::debugLog("Log : %f\n", this->frame_data[j * 10]);
+				//debug::debugLog("Log : %f\n", this->frame_data[j * 10]);
 			}
 
 			this->sum_time += this->key_points[i + 1].first;
@@ -77,7 +77,7 @@ namespace component {
 
 	void CAT_AnimationCurve::update() {
 		*(this->set_ptr) = this->frame_data[std::clamp((time / 10) * 10, 0 ,sum_time / 10 * 10)];
-		debug::debugLog("Key Value : %f \n", *(this->set_ptr));
+		//debug::debugLog("Key Value : %f \n", *(this->set_ptr));
 	}
 
 	void CAT_AnimationCurve::gain(int delta_time) {

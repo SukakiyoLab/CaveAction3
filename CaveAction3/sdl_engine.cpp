@@ -314,14 +314,14 @@ int CAT_SDLEngine::Update()
         float value = SDL_GameControllerGetAxis(m_controller, SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
         if (!input.right_trigger_switch) {
             if (value > 10000) {
-                printf("%f\n", value);
+                //printf("%f\n", value);
 
                 input.right_trigger = 1;
                 input.right_trigger_switch = true;
             }
         }
         else {
-            printf("%f\n", value);
+            //printf("%f\n", value);
             input.right_trigger = 0;
 
             if (value < 10000) {
@@ -338,7 +338,9 @@ int CAT_SDLEngine::Update()
 
     object_manager->gain(frameTime);
 
-    this->m_collider_manager->judge();
+    if (count % 2 == 0) {
+        this->m_collider_manager->judge();
+    }
 
     object_manager->update();
     
@@ -347,9 +349,9 @@ int CAT_SDLEngine::Update()
     
 
     frameTime = SDL_GetTicks() - frameStart;
-    if (frameTime < 15)
+    if (frameTime < 30)
     {
-        SDL_Delay(15 - frameTime);
+        SDL_Delay(30 - frameTime);
         frameTime = SDL_GetTicks() - frameStart;
     }
     else {
@@ -357,12 +359,15 @@ int CAT_SDLEngine::Update()
             frameTime = 15;
             InitWindowPosition();
         }*/
+
+        debug::debugLog("Time : %d\n", frameTime);
+
         frameTime = 15;
     }
 
     //preDeltaTime = frameTime;
 
-    //debug::debugLog("%d\n", preDeltaTime);
+    
 
 
     count++;

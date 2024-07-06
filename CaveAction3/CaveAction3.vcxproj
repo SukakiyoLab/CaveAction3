@@ -194,6 +194,8 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>$(SDLVC_DIR)\SDL2-2.30.0\include;$(SDLVC_DIR)\SDL2_image-2.8.2\include;$(EIGEN_DIR);C:\CPP_LIBRARY\cryptopp890;C:\CPP_LIBRARY\pugixml-1.14\pugixml-1.14\src;C:\Users\Sukakiyo\Desktop\python_src\CaveAction3_Sub\cpp_header</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <Optimization>MaxSpeed</Optimization>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

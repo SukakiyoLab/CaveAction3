@@ -340,7 +340,7 @@ namespace object {
 
 		for (component::CAT_Component* component_ptr : this->self_components_vector) {
 			if (component_ptr == nullptr) {
-				pointer_wrapper::Delete<component::CAT_Component>(component_ptr);
+				delete component_ptr;
 			}
 		}
 	}

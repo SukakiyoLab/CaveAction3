@@ -164,8 +164,8 @@ namespace component
         }
 
         for(int i = 0 ; i < lines.size(); i++){
-            debug::debugLog("Lines1 x: %d y: %d\n", lines[i].first->first, lines[i].first->second);
-            debug::debugLog("Lines2 x: %d y: %d\n", lines[i].second->first, lines[i].second->second);
+            //debug::debugLog("Lines1 x: %d y: %d\n", lines[i].first->first, lines[i].first->second);
+            //debug::debugLog("Lines2 x: %d y: %d\n", lines[i].second->first, lines[i].second->second);
         }
     }
 
@@ -215,7 +215,7 @@ namespace component
                     && edge2[1] > pos[1] - height / 2){ /* ècí∑Collider : íÜâõ */
                         
                         if(dist_vec.norm() < sum_width){
-                            debug::debugLog("Collider On\n");
+                            //debug::debugLog("Collider On\n");
 
                             if (pos[0] < edge1[0]) {
                                 dist_vec = pos - Vector2d(edge1[0] - this->m_width / 2, pos[1]);
@@ -258,7 +258,7 @@ namespace component
                         //(edge1 - pos).norm() < this->m_width / 2
                     ){                                  
                         if(dist_vec.norm() < sum_width){
-                            debug::debugLog("Collider On\n");
+                            //debug::debugLog("Collider On\n");
                             
                             dist_vec = (edge1 - pos);
                             int key = 0;
@@ -309,7 +309,7 @@ namespace component
                         //(edge2 - pos).norm() < this->m_width / 2
                     ){                                  
                         if(dist_vec.norm() < sum_width){
-                            debug::debugLog("Collider On\n");
+                            //debug::debugLog("Collider On\n");
                             
                             dist_vec = (edge2 - pos);
                             int key = 0;
@@ -368,7 +368,7 @@ namespace component
                     && edge2[0] > pos[0] - width / 2){ /* â°í∑Collider : íÜâõïî */
                         
                         if(dist_vec.norm() < sum_width){
-                            debug::debugLog("Collider On\n");
+                            //debug::debugLog("Collider On\n");
                             
                             if (pos[1] < edge1[1]) {
                                 dist_vec = - Vector2d(pos[0], pos[1] + height / 2) + Vector2d(pos[0], edge1[1] - this->m_width / 2);
@@ -452,7 +452,7 @@ namespace component
                         //(edge2 - pos).norm() < this->m_width / 2
                     ){                                  
                         if(dist_vec.norm() < sum_width){
-                            debug::debugLog("Collider On\n");
+                            //debug::debugLog("Collider On\n");
                             
                             dist_vec = (edge2 - pos);
                             int key = 0;

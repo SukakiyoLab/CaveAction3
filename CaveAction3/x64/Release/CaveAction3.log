@@ -1,19 +1,97 @@
-﻿  player_controller.cpp
+﻿  image_projecter.cpp
 C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'player_controller.cpp' をコンパイルしています)
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
   
 C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'player_controller.cpp' をコンパイルしています)
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
   
 C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'player_controller.cpp' をコンパイルしています)
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(36,48): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(37,50): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'image_projecter.cpp' をコンパイルしています)
+  
+  object_manager.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(36,48): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(37,50): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
   
 C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  (ソース ファイル 'player_controller.cpp' をコンパイルしています)
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(32,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'object_manager.cpp' をコンパイルしています)
+  
+  sdl_engine.cpp
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\CPP_LIBRARY\eigen-3.4.0\eigen3\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image_storage.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(36,48): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.h(37,50): warning C4244: '初期化中': 'double' から 'unsigned int' への変換です。データが失われる可能性があります。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\rigidbody.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\xml_loader.h(32,42): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\tilemap.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
+  
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\animation_image.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'sdl_engine.cpp' をコンパイルしています)
   
   コード生成しています。
-  1 of 5495 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    45 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\view_camera.cpp(63): warning C4715: 'component::CAT_ViewCamera::get_view_port_param': 値を返さないコントロール パスがあります。
+C:\Users\Sukakiyo\source\repos\CaveAction3\CaveAction3\nav_mesh_system2d.cpp(25): warning C4715: 'NavMeshSystem2D::height_to_key': 値を返さないコントロール パスがあります。
+  All 5352 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   コード生成が終了しました。
   CaveAction3.vcxproj -> C:\Users\Sukakiyo\source\repos\CaveAction3\x64\Release\CaveAction3.exe

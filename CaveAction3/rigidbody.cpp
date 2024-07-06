@@ -20,17 +20,17 @@ namespace component {
 
 	void CAT_Rigidbody::gain(int delta_time) {
 		this->m_delta_time = delta_time;
-
+		
 	}
 
 	void CAT_Rigidbody::update() {
-		pre_pos = this->m_transform->get_position();
-		Vector3d next_pos = pre_pos + (this->m_velocity) * m_delta_time / 1000;
+		
+		Vector3d next_pos = this->m_transform->get_position() + (this->m_velocity) * m_delta_time / 1000;
 		next_pos = (next_pos).array().round().matrix();
 		this->m_transform->set_position(next_pos);
 
-		debug::print("velocity", this->m_velocity);
-		debug::debugLog("[speed] : %f\n", this->m_speed);
+		//debug::print("velocity", this->m_velocity);
+		//debug::debugLog("[speed] : %f\n", this->m_speed);
 
 		// 速度を計算//
 		if (type == Newton) {
@@ -39,7 +39,7 @@ namespace component {
 
 			Vector3d next_velocity;
 
-
+			/*
 
 			//debug::print("sum_force", this->m_sum_force);
 			Vector3d force_v;
@@ -75,6 +75,9 @@ namespace component {
 			else {
 				next_velocity = pre_velocity + (this->m_sum_force + friction_force) * m_delta_time / 1000 / this->mass;
 			}
+			*/
+
+			next_velocity = pre_velocity + (this->m_sum_force + friction_force) * m_delta_time / 1000 / this->mass;
 
 			//next_velocity = pre_velocity + (this->m_sum_force + friction_force) * delta_time / 1000 / this->mass;
 

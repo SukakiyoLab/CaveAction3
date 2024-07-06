@@ -32,7 +32,7 @@ namespace game_system_1 {
 			this->m_objects.push_back(object_set.second);
 			auto end_ptr = this->m_objects.end();
 			--end_ptr;
-			this->m_objects_map[object_set.first] = &(*end_ptr);
+			this->m_objects_map[object_set.first].push_back(&(*end_ptr));
 		}
 		
 	}
@@ -40,9 +40,10 @@ namespace game_system_1 {
 
 	void ObjectManager::delete_objects() {
 		for (std::string object_name : *(m_generator_ptr->get_delete_object_data())) {
-			delete (*this->m_objects_map[object_name]);
-			(*this->m_objects_map[object_name]) = nullptr;
-
+			for (object::GameObject** object_ptr : this->m_objects_map[object_name]) {
+				delete *object_ptr;
+				*object_ptr = nullptr;
+			}
 			this->m_collider_manager_ptr->cancel(object_name);
 			this->m_projecter_ptr->cancel(object_name);
 		}
@@ -87,11 +88,11 @@ namespace game_system_1 {
 			
 
 			if (component_name == "CAT_Transform") {
-				gameObjectInit->other_obj_components[object_name + "::" + component_name].push_back((*this->m_objects_map[object_name])->GetTransform());
+				gameObjectInit->other_obj_components[object_name + "::" + component_name].push_back((*this->m_objects_map[object_name][0])->GetTransform());
 			}
 			else {
 				unsigned short component_id = std::stoi(other_component_data_ptr->nexts["component_id"][0]->item);
-				gameObjectInit->other_obj_components[object_name + "::" + component_name].push_back((*this->m_objects_map[object_name])->GetComponent(component_name, component_id));
+				gameObjectInit->other_obj_components[object_name + "::" + component_name].push_back((*this->m_objects_map[object_name][0])->GetComponent(component_name, component_id));
 			}
 		}
 

@@ -26,6 +26,8 @@ namespace component
 
         Range range;
 
+        int overlap = 0;
+
 
     public:
         struct ComponentInitializer : public CAT_Collider2D::ComponentInitializer {
